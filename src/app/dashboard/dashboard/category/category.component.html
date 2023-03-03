@@ -18,7 +18,7 @@
                         </div>
                         <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1">
                             <span class="text-light ps-1 py-2">{{prod.price | currency}}</span>
-                            <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(prod)">
+                            <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(content,prod)">
                                 View More
                             </button>
                         </div>
@@ -30,4 +30,8 @@
         
     </div>
 </div>
-<app-modal #modal [items]="items"  [numbers]="numbers"></app-modal>
+
+<ng-template #content let-modal>
+
+    <app-modal [items]="items"  [numbers]="numbers"></app-modal>
+</ng-template>

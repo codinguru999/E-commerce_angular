@@ -25,7 +25,7 @@ import { LoginguardGuard } from './loginguard.guard';
 // import { CartComponent } from './cart/cart.component';
 // import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './dashboard/header/header.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { FooterComponent } from './dashboard/footer/footer.component';
 // import { HomeComponent } from './dashboard/home/home.component';
 

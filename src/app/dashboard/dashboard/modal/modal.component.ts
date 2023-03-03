@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { NgbModal,NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/mainservice.service';
 // import { ModalServiceService } from './modal-service.service';
 
@@ -8,20 +8,24 @@ import { MainserviceService } from 'src/app/mainservice.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnChanges {
+export class ModalComponent {
   @Input() items: any
   @Input() numbers: any
+  @Output() close= new EventEmitter<any>();
   user: any
-  constructor(private modalService: NgbModal, private main: MainserviceService) { }
-  @ViewChild('content') mymodal: ElementRef | undefined;
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['items'].firstChange == false) {
+  // modal:NgbActiveModal
+  constructor(private modalService: NgbModal,public modal:NgbActiveModal, private main: MainserviceService) { }
+  // @ViewChild('content') mymodal: ElementRef | undefined;
+  // ngOnChanges(changes: SimpleChanges) {
+  //   // console.log(changes)
+  //   if (changes['items'].firstChange == false) {
 
-      this.modalService.open(this.mymodal, { centered: true, size: 'md' });
+  //     this.modalService.open(this.mymodal, { centered: true, size: 'md' });
 
-    }
+
+  //   }
    
-  }
+  // }
   ngOnInit(){
     this.main.getuser().subscribe((data) => {
       

@@ -56,9 +56,10 @@ export class HomeComponent {
 
   }
 
-  openVerticallyCentered(item:any) {
+  openVerticallyCentered(content:any,item:any) {
     // console.log(item)
     this.items=item
+    this.modalService.open(content,{centered:true,size:'md'})
     // this.modal.items=this.items
 		
 	}

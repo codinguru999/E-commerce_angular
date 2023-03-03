@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { ModalComponent } from './modal/modal.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { ModalComponent } from './modal/modal.component';
   imports: [
     CommonModule,
     DashboardRoutingModule
-  ]
+  ],
+  providers:[NgbActiveModal],
+  // entryComponents:[ModalComponent]?
 })
 export class DashboardModule { }

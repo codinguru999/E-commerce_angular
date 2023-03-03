@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../modal/modal.component';
 import { CategoryServiceService } from './category-service.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class CategoryComponent {
   product: any
   items: any
   numbers = [1, 2, 3, 4, 5]
-  constructor(private service: CategoryServiceService) {
+  // modalService: any;
+  constructor(private service: CategoryServiceService,private modalService:NgbModal) {
     // console.log("Category page Called")
   }
   ngOnInit() {
@@ -33,10 +35,13 @@ export class CategoryComponent {
       }
     })
   }
-  openVerticallyCentered(item: any) {
+  openVerticallyCentered(content:any,item: any) {
     // console.log(item)
     this.items = item
+   let modalref= this.modalService.open(content,{centered:true,size:'md'});
+  //  modalref.componentInstance.items=item
     // this.modal.items=this.items
 
   }
+
 }
