@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class LoginServiceService {
 
 url="http://localhost:3000/users"
+loginValid=false
   constructor(private http: HttpClient) { }
   ngOnItit(){
     

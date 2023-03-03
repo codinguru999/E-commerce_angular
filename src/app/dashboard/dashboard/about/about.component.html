@@ -1,0 +1,17 @@
+<div class="container-fluid bg-info-subtle d-flex flex-column justify-content-center align-items-center">
+    <h1 class="text-center text-success m-3">Your Orders</h1>
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="container text-warning text-center" *ngIf="!blank; else elseBlock">
+            <h3 class="text-center">Your order list is Empty</h3>
+            <span class="mx-auto text-success fs-5">
+                <a [routerLink]="['/dashboard']">Order Now</a>
+            </span>
+        </div>
+        <ng-template #elseBlock>
+
+        </ng-template>
+    </div>
+</div>
+
+
+  

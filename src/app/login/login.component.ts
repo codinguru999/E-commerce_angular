@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainserviceService } from '../mainservice.service';
 import { Login } from './Login';
 import { LoginServiceService } from './login-service.service';
 
@@ -15,8 +16,9 @@ export class LoginComponent {
   userexist = true
   parsedData: any
   wrnpass = true
-  isLoginValid=true
-  constructor(private logserv: LoginServiceService, private router: Router) { }
+  name:any
+  // isLoginValid=false
+  constructor(private logserv: LoginServiceService, private router: Router,private main:MainserviceService) { }
 
   setClass(value: any) {
     if (value.invalid && value.touched) {
@@ -45,8 +47,13 @@ export class LoginComponent {
     else {
       if (this.parsedData[0].password === this.login.password) {
         // console.log(this.parsedData[0].password)
-        this.isLoginValid=true
-        this.router.navigate(['/dashboard'])
+        // this.isLoginValid=true
+        this.logserv.loginValid=true
+        let email=this.login.email
+        this.router.navigateByUrl('/dashboard/home')
+        localStorage.setItem('useremail',JSON.stringify(email))
+        localStorage.setItem('islogin',JSON.stringify(true))
+        this.main.setSubject()
         
       }
       else {

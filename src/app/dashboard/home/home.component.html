@@ -1,1 +1,67 @@
-<p>home works!</p>
+<!-- <h1>Home works</h1> -->
+<div class="container-fluid bg-info mt-0 pt-3">
+    <div class="container">
+        <div class="row m-3" *ngFor="let product of products">
+            <div class="col my-2 mx-1" *ngFor="let item of product" style="height: 21rem;">
+                <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
+                    <img [src]="item.image" alt="" class="w-100 h-75 rounded">
+                    <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">
+                        <span class="text-light p-1">
+                            {{item.title | slice: 0:15 }}
+                        </span>
+                        <span class="d-flex flex-row ms-auto">
+                            <i class="material-icons text-white"
+                                *ngFor="let number of numbers |slice: 0:item.rating.rate">star</i>
+                        </span>
+                    </div>
+                    <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1">
+                        <span class="text-light ps-1 py-2">{{item.price | currency}}</span>
+                        <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(content,item)">
+                            View More
+                        </button>
+                    </div>
+
+                </div>
+                <!-- <span>{{item.title}}</span> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">{{items.title}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body d-flex flex-row">
+        <!-- <p>One fine body&hellip;</p> -->
+        <img [src]="items.image" class="w-50 h-25 p-2" alt="">
+        <div class="container-fluid w-50 h-25 p-2">
+            <h4 class="fw-bolder my-1">Price: {{items.price | currency}} <span class="text-danger fw-light"> Save 50%</span>
+                <br>
+                <span class="text-danger fs-6 fw-light"><del>{{items.price*2 | currency}}</del></span>
+            </h4>
+            
+            <h4 class="fw-bolder my-1"><span class="fw-light">Category:</span><br>{{items.category | titlecase}}</h4>
+            <p><span class="fw-bolder">Description:</span><br>
+                {{items.description}}</p>
+        </div>
+        
+    </div>
+    <div class="d-flex w-100 flex-row ms-auto">
+        <h4 class="my-auto d-inline">Ratings:</h4>
+        <span class="my-auto">
+
+            <i class="material-icons text-primary" *ngFor="let number of numbers |slice: 0:items.rating.rate">star</i>
+        </span>
+        <div class="ms-auto d-flex flex-row">
+            <button class="btn btn-danger m-1">Buy Now</button>
+            <button class="btn btn-warning m-1">Add to Cart</button>
+        </div>
+    </div>
+    <div class="modal-footer">
+        
+        <button type="button" class="btn btn-danger ms-auto" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>

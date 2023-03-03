@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule, Router,CanActivate } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { LoginguardGuard } from './loginguard.guard';
-// import { HeaderComponent } from './dashboard/header/header.component';
+// import { CartComponent } from './cart/cart.component';
+// import { CategoryComponent } from './category/category.component';
+import { HeaderComponent } from './dashboard/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { FooterComponent } from './dashboard/footer/footer.component';
 // import { HomeComponent } from './dashboard/home/home.component';
 
@@ -30,7 +33,8 @@ import { LoginguardGuard } from './loginguard.guard';
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
+    SignupComponent,HeaderComponent
+    
     
     // ProductsComponent,
     // DashboardComponent,
@@ -38,7 +42,7 @@ import { LoginguardGuard } from './loginguard.guard';
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    AppRoutingModule, RouterModule.forRoot(routerList), BrowserAnimationsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule
+     RouterModule.forRoot(routerList),AppRoutingModule, BrowserAnimationsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule, NgbModule
   ],
   providers: [LoginguardGuard],
   bootstrap: [AppComponent]
