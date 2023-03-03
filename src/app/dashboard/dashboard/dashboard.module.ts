@@ -9,11 +9,12 @@ import { HomeComponent } from '../home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent
+    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent, ModalComponent
   ],
   imports: [
     CommonModule,

@@ -10,10 +10,20 @@ import { MainserviceService } from 'src/app/mainservice.service';
 export class AboutComponent {
 userdetails:any
 blank=false
+obj:any={}
+objectKeys = Object.keys;
+
 constructor(private main:MainserviceService){}
 ngOnInit(){
 this.main.getuser().subscribe(data=>{
   this.userdetails=data
+  // console.log(this.userdetails[0].orders[0])
+  if(this.userdetails[0].orders[0]===undefined){
+    this.blank=false
+  }
+  else{
+    this.blank=true
+  }
   this.userorders(this.userdetails)
   
 })
@@ -21,8 +31,21 @@ this.main.getuser().subscribe(data=>{
 // constructor() {}
 
 userorders(details:any){
-  this.userdetails=details[0].cart
-  console.log(this.userdetails)
+  
+  this.userdetails=details[0].orders
+  // this.userdetails.group()
+  // console.log(this.userdetails)
+  for (let ob of this.userdetails){
+    let i=ob.id
+    if(i in this.obj){
+      this.obj[i]['count']++
+    }
+    else{
+      ob['count']=1
+      this.obj[i]=ob
+    }
+  }
+  console.log(this.obj)
 }
 // if (this.userdet==0) {
 //   blank=true

@@ -20,7 +20,7 @@ export class HeaderComponent {
     // console.log("header")
     this.main.subject.subscribe({
       next: (v: any) => {
-        console.log({ v })
+        // console.log({ v })
         if (v == null || v == 'false') {
           this.islogin = false
         }
@@ -42,7 +42,7 @@ export class HeaderComponent {
   }
   getlogin() {
     let login = localStorage.getItem('islogin')
-    console.log(login)
+    // console.log(login)
     if (login == null) {
       this.islogin = false
     }

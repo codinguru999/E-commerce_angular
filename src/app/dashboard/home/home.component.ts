@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { ModalServiceService } from '../dashboard/modal/modal-service.service';
+import { ModalComponent } from '../dashboard/modal/modal.component';
 import { HomeserviceService } from './homeservice.service';
 // import { ActivatedRoute } from '@angular/router';
 
@@ -15,7 +17,13 @@ export class HomeComponent {
   products: any[]=[]
   numbers=[1,2,3,4,5]
   constructor(private serv: HomeserviceService,private modalService: NgbModal) {
-
+    
+  }
+  @ViewChild('content')
+  content!: ModalComponent;
+  
+  ngAfterViewInit(){
+    // this.content.items=this.items
   }
   ngOnInit() {
     // console.log("Home component Ng init called")
@@ -48,9 +56,10 @@ export class HomeComponent {
 
   }
 
-  openVerticallyCentered(content:any,item:any) {
-    console.log(item)
+  openVerticallyCentered(item:any) {
+    // console.log(item)
     this.items=item
-		this.modalService.open(content, { centered: true,size:'md' });
+    // this.modal.items=this.items
+		
 	}
 }
