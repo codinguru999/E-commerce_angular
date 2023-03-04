@@ -20,19 +20,19 @@ export class AppComponent {
     //           this.currentRoute = event.url;          
     //           console.log(event);
     //        });
-    this.router.events
-      .subscribe(
-        (event) => {
-          if (event instanceof NavigationStart) {
-            console.log(event.url);
-            this.url = event.url;
-            if(this.url=="/" || this.url==""){
-              main.subject.next('false')
+    // this.router.events
+    //   .subscribe(
+    //     (event) => {
+    //       if (event instanceof NavigationStart) {
+    //         console.log(event.url);
+    //         this.url = event.url;
+    //         if(this.url=="/" || this.url==""){
+    //           main.subject.next('false')
               
-            }
-        }
+    //         }
+    //     }
 
-        });
+    //     });
   }
   ngOnInit() {
     // console.log("app component rednders")

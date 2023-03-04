@@ -35,9 +35,18 @@ export class ModalComponent {
   }
   updateProduct(item: any) {
 
-    console.log(this.user[0]);
+    // console.log(this.user[0]);
     let id = this.user[0].id
     this.user[0].orders.push(item)
+    this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
+      // console.log(data)
+    })
+  }
+  updateCartProduct(item: any) {
+
+    // console.log(this.user[0]);
+    let id = this.user[0].id
+    this.user[0].cart.push(item)
     this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
       // console.log(data)
     })

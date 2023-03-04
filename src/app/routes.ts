@@ -4,16 +4,20 @@ import { LoginComponent } from "./login/login.component";
 import { Routes } from "@angular/router";
 import { SignupComponent } from "./signup/signup.component";
 import { LoginguardGuard } from "./loginguard.guard";
+import { NoRouteComponent } from "./no-route/no-route.component";
+import { LogingrdGuard } from "./logingrd.guard";
 
-export const routerList = [
-    { path: '', component: SignupComponent },
-    { path: 'signup', component: SignupComponent },
+export const routerList :Routes = [
+    { path: '', component: SignupComponent,canActivate: [LoginguardGuard] },
+    { path: 'signup', component: SignupComponent,canActivate: [LoginguardGuard] },
     { path: 'login', component: LoginComponent },
     {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard/dashboard.module').then((m) => m.DashboardModule),
-        // canActivate: [LoginguardGuard]
+        canActivate: [LogingrdGuard]
     },
-    {path:'**',component:SignupComponent}
+    {path:'**',component:NoRouteComponent,canActivate: [LoginguardGuard]}
+    // 
+
     // {path :'products', component:ProductsComponent},
 ]

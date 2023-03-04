@@ -26,6 +26,7 @@ import { LoginguardGuard } from './loginguard.guard';
 // import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './dashboard/header/header.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NoRouteComponent } from './no-route/no-route.component';
 // import { FooterComponent } from './dashboard/footer/footer.component';
 // import { HomeComponent } from './dashboard/home/home.component';
 
@@ -33,7 +34,7 @@ import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,HeaderComponent
+    SignupComponent,HeaderComponent, NoRouteComponent
     
     
     // ProductsComponent,

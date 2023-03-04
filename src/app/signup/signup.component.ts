@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { SignupServiceService } from './signup-service.service';
 import { Location } from '@angular/common';
-import { Route, Router } from '@angular/router';
+import { NavigationStart, Route, Router } from '@angular/router';
+import { MainserviceService } from '../mainservice.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,8 +13,25 @@ export class SignupComponent {
   signup: any={}
   exist=false
   gdata: any
+  url:any
+  constructor(private signserv:SignupServiceService,private router: Router,private main:MainserviceService){
+    
+  }
 ngOnInit(){
   // localStorage.clear()
+  this.router.events
+      .subscribe(
+        (event) => {
+          if (event instanceof NavigationStart) {
+            console.log(event.url);
+            this.url = event.url;
+            if(this.url=="/" || this.url==""){
+              this.main.subject.next('false')
+              
+            }
+        }
+
+        });
 }
   setClass(value: any){
     if(value.invalid && value.touched){
@@ -23,7 +41,6 @@ ngOnInit(){
       return 'form-control border border-primary'
     }
   }
-constructor(private signserv:SignupServiceService,private router: Router){}
   submitForm(form:any){
     this.signserv.getItem(this.signup.email).subscribe((data)=>{
       this.gdata=data
