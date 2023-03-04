@@ -10,7 +10,7 @@ import { MainserviceService } from 'src/app/mainservice.service';
 export class HeaderComponent {
   // @Input() username:any;
   // username:any
-  title = 'Prafull Mangla';
+  title = 'E-Commerce';
   navbarOpen = false;
   hamburger = false
   islogin = false
@@ -23,6 +23,7 @@ export class HeaderComponent {
         // console.log({ v })
         if (v == null || v == 'false') {
           this.islogin = false
+          localStorage.clear()
         }
         else {
           this.islogin = true

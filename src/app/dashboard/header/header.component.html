@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-primary text-white bg-primary mb-0 px-3 py-1">
-    <a class="text-white navbar-brand" [routerLink]="'dashboard/home'" *ngIf="islogin; else elseBlock">
+    <a class="text-white fw-bold navbar-brand" [routerLink]="'dashboard/home'" *ngIf="islogin; else elseBlock">
       {{title}}
     </a>
     <ng-template #elseBlock>
@@ -19,21 +19,21 @@
          [ngClass]="{ 'show': hamburger }">
       <ul class="navbar-nav mr-auto" *ngIf="islogin">
         <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/home'">Home</a>
+          <a class="nav-link text-white" [routerLink]="'dashboard/home'" routerLinkActive="active-link">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/orders'">Your Orders</a>
+          <a class="nav-link text-white" [routerLink]="'dashboard/orders'" routerLinkActive="active-link">Your Orders</a>
         </li>
   
         <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/cart'">Cart</a>
+          <a class="nav-link text-white" [routerLink]="'dashboard/cart'" routerLinkActive="active-link">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/category'">Categories</a>
+          <a class="nav-link text-white" [routerLink]="'dashboard/category'" routerLinkActive="active-link">Categories</a>
         </li>
       </ul>
         <div class="d-flex ms-auto me-2">
-          <li class="d-flex ms-auto me-2 nav-item p-2">{{username |uppercase}}</li>
+          <li class="d-flex ms-auto me-2 fw-bold nav-item p-2">{{username |uppercase}}</li>
           <button class="btn btn-danger text-light" (click)="logout()" *ngIf="islogin">Logout</button>
 
         </div>

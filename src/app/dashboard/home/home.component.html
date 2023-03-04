@@ -30,5 +30,5 @@
 </div>
 <ng-template #content let-modal>
 
-    <app-modal [items]="items"  [numbers]="numbers"></app-modal>
+    <app-modal [items]="items" [numbers]="numbers" (closes)="closeModal(content)"></app-modal>
 </ng-template>

@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       // {path:'dashboard/home/:name',component:HomeComponent},
       { path: '', redirectTo: '/dashboard/home', pathMatch: 'full' },
+      {path:"**" ,redirectTo: '/dashboard/home', pathMatch: 'full' }
 
     ]
   },

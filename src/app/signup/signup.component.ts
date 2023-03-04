@@ -12,7 +12,9 @@ export class SignupComponent {
   signup: any={}
   exist=false
   gdata: any
-
+ngOnInit(){
+  // localStorage.clear()
+}
   setClass(value: any){
     if(value.invalid && value.touched){
       return 'form-control'

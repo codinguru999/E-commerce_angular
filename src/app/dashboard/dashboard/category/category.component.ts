@@ -43,5 +43,8 @@ export class CategoryComponent {
     // this.modal.items=this.items
 
   }
+  closeModal(content : any){
+    this.modalService.dismissAll(content)
+  }
 
 }

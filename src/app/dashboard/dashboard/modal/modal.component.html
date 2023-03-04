@@ -1,7 +1,7 @@
 <!-- <ng-template #content let-modal> -->
     <div class="modal-header">
         <h4 class="modal-title">{{items.title}}</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modalClose()"></button>
     </div>
     <div class="modal-body d-flex flex-row">
         <!-- <p>One fine body&hellip;</p> -->
@@ -31,6 +31,6 @@
     </div>
     <div class="modal-footer">
         
-        <button type="button" class="btn btn-primary ms-auto" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-primary ms-auto" (click)="modalClose()">Close</button>
     </div>
 <!-- </ng-template> -->
