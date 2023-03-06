@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/mainservice.service';
 // import { ModalServiceService } from './modal-service.service';
@@ -14,7 +15,7 @@ export class ModalComponent {
   @Output() closes = new EventEmitter<any>();
   user: any
   // modal:NgbActiveModal
-  constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService) { }
+  constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService, private router: Router) { }
   // @ViewChild('content') mymodal: ElementRef | undefined;
   // ngOnChanges(changes: SimpleChanges) {
   //   // console.log(changes)
@@ -34,13 +35,15 @@ export class ModalComponent {
     })
   }
   updateProduct(item: any) {
-
+    console.log(item.id)
     // console.log(this.user[0]);
     let id = this.user[0].id
     this.user[0].orders.push(item)
     this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
       // console.log(data)
     })
+    this.router.navigateByUrl('/dashboard/buy/' + item.id)
+    this.modalClose()
   }
   updateCartProduct(item: any) {
 
@@ -51,7 +54,7 @@ export class ModalComponent {
       // console.log(data)
     })
   }
-  modalClose(){
+  modalClose() {
     this.closes.emit()
   }
 }

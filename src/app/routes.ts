@@ -10,7 +10,7 @@ import { LogingrdGuard } from "./logingrd.guard";
 export const routerList :Routes = [
     { path: '', component: SignupComponent,canActivate: [LoginguardGuard] },
     { path: 'signup', component: SignupComponent,canActivate: [LoginguardGuard] },
-    { path: 'login', component: LoginComponent },
+    { path: 'login', component: LoginComponent ,canActivate: [LoginguardGuard]},
     {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard/dashboard.module').then((m) => m.DashboardModule),

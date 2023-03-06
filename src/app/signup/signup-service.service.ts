@@ -43,6 +43,8 @@ export class SignupServiceService {
         "number": 7682,
         "zipcode": "12926-3874"
       },
+      "cart":[],
+      "orders":[],
       "email": email,
       "username": name,
       "password": password,

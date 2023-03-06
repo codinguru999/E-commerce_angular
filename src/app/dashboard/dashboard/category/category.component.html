@@ -3,8 +3,8 @@
         <div class="row m-3" *ngFor="let category of categories">
             <h1>{{category | titlecase}}</h1>
             <hr>
-            <div class="container d-flex flex-row flex-wrap">
-                <div class="col my-2 mx-1" *ngFor="let prod of products[category]" style="height: 21rem;">
+            <div class="d-flex flex-row" >
+                <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]" style="height: 21rem;">
                     <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
                         <img [src]="prod.image" alt="" class="w-100 h-75 rounded">
                         <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">

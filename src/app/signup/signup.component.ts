@@ -61,7 +61,7 @@ ngOnInit(){
 
       }
       else{
-        alert("Your Account has been created with Email: "+this.signup.email +"and password: "+this.signup.password+" now you can login")
+        alert("Your Account has been created with: \nEmail: "+this.signup.email +"\nPassword: "+this.signup.password+"\n Now you can login")
         this.signserv.setItem(this.signup.name,this.signup.email,this.signup.password)
         // this.location.back()
         this.router.navigate(['/login'])
