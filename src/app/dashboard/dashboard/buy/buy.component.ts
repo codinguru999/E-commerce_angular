@@ -32,8 +32,6 @@ id:any
   users:any={}
   addres:any={}
   ngOnInit() {
-    console.log("Buy element");
-    console.log(this.route.snapshot.paramMap.get('id'))
     this.id=this.route.snapshot.paramMap.get('id')
     this.main.getuser().subscribe((data)=>{
       this.useres=data
@@ -51,6 +49,7 @@ submitUser(form:any){
   this.switchel=2
   this.secondDisabled=false
   this.firstLine=100
+
 }
 userAddress(form:any){}
 

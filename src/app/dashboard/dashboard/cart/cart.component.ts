@@ -9,6 +9,7 @@ import { MainserviceService } from 'src/app/mainservice.service';
 export class CartComponent {
   userdetails: any
   blank = false
+  sum=0
   obj: any = {}
   objectKeys = Object.keys;
 
@@ -28,17 +29,20 @@ export class CartComponent {
   }
 
   userorders(details: any) {
-
     this.userdetails = details[0].cart
     for (let ob of this.userdetails) {
       let i = ob.id
       if (i in this.obj) {
         this.obj[i]['count']++
+        this.sum+=this.obj[i]['price']
       }
       else {
         ob['count'] = 1
         this.obj[i] = ob
+        this.sum+=this.obj[i]['price']
       }
     }
+    // console.log(this.sum);
+    
   }
 }

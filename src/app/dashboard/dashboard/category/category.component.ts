@@ -40,8 +40,7 @@ export class CategoryComponent {
     // console.log(item)
     this.items = item
    let modalref= this.modalService.open(content,{centered:true,size:'md'});
-  //  modalref.componentInstance.items=item
-    // this.modal.items=this.items
+  
 
   }
   closeModal(content : any){

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MainserviceService } from 'src/app/mainservice.service';
-import { DashboardServiceService } from './dashboard-service.service';
+// import { ActivatedRoute } from '@angular/router';
+// import { MainserviceService } from 'src/app/mainservice.service';
+// import { DashboardServiceService } from './dashboard-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +12,7 @@ export class DashboardComponent {
  email:any
  name:any
  user:any
- constructor(private route:ActivatedRoute,private dasboard:DashboardServiceService,private main:MainserviceService){}
+//  constructor(private route:ActivatedRoute,private dasboard:DashboardServiceService,private main:MainserviceService){}
   
 
 }
