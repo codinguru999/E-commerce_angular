@@ -10,7 +10,7 @@
         <ng-template #elseBlock>
             <div  class="container px-0  my-2 p-3 d-flex flex-row rounded" style="height: 13rem; background-color: #f8f9fa;" *ngFor="let key of objectKeys(obj)">
                 <img class="ms-2 my-auto  w-25 h-100" [src]="obj[key].image" alt="">
-                <div class="container d-flex flex-column align-item-start">
+                <div class="container w-75 d-flex flex-column align-item-start">
                     <h1>{{obj[key].title | titlecase}} </h1>
                     <h3 class="my-3">{{obj[key].count}}</h3>
                 </div>

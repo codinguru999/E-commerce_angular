@@ -4,7 +4,7 @@
             <h1>{{category | titlecase}}</h1>
             <hr>
             <div class="d-flex flex-row" >
-                <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]" style="height: 21rem;">
+                <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]" style="height: 22.5rem;">
                     <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
                         <img [src]="prod.image" alt="" class="w-100 h-75 rounded">
                         <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">
@@ -30,8 +30,12 @@
         
     </div>
 </div>
-
 <ng-template #content let-modal>
 
-    <app-modal [items]="items"  [numbers]="numbers" (closes)="closeModal(content)"></app-modal>
+    <app-modal [items]="items" [numbers]="numbers" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
+</ng-template>
+<ng-template #popover let-modal >
+    <div class="modal-header ">
+        <span>Item Added to cart</span>
+    </div>
 </ng-template>

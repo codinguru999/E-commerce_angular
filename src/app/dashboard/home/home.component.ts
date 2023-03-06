@@ -66,4 +66,11 @@ export class HomeComponent {
   closeModal(content : any){
     this.modalService.dismissAll(content)
   }
+  openmodal(pop:any)
+  {
+    // this.modalService.dismissAll()
+    this.modalService.open(pop,{size:'sm'})
+   setTimeout(()=>{this.modalService.dismissAll()},1000) 
+
+  }
 }

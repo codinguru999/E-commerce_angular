@@ -9,15 +9,16 @@ import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { ModalComponent } from './modal/modal.component';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './buy/buy.component';
+import { FormsModule } from '@angular/forms';
 
 // import {}
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent, ModalComponent, BuyComponent
+    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent, ModalComponent
   ],
   imports: [
     CommonModule,

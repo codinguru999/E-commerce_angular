@@ -12,7 +12,9 @@ import { MainserviceService } from 'src/app/mainservice.service';
 export class ModalComponent {
   @Input() items: any
   @Input() numbers: any
+  // @Input() popover:any
   @Output() closes = new EventEmitter<any>();
+  @Output() popove = new EventEmitter<any>();
   user: any
   // modal:NgbActiveModal
   constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService, private router: Router) { }
@@ -50,9 +52,11 @@ export class ModalComponent {
     // console.log(this.user[0]);
     let id = this.user[0].id
     this.user[0].cart.push(item)
+    
     this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
       // console.log(data)
     })
+    this.popove.emit()
   }
   modalClose() {
     this.closes.emit()

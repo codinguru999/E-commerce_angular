@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from '../modal/modal.component';
 import { CategoryServiceService } from './category-service.service';
+// import { NgbdPopoverTarget}
 
 @Component({
   selector: 'app-category',
@@ -45,6 +46,12 @@ export class CategoryComponent {
   }
   closeModal(content : any){
     this.modalService.dismissAll(content)
+  }
+  openmodal(pop:any)
+  {this.modalService.dismissAll()
+    this.modalService.open(pop,{size:'sm'})
+   setTimeout(()=>{this.modalService.dismissAll()},1000) 
+
   }
 
 }

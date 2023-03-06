@@ -2,12 +2,12 @@
 <div class="container-fluid bg-info mt-0 pt-3">
     <div class="container">
         <div class="row m-3" *ngFor="let product of products">
-            <div class="col my-2 mx-1" *ngFor="let item of product" style="height: 21rem;">
+            <div class="col my-2 mx-1" *ngFor="let item of product" style="height: 22.5rem;">
                 <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
                     <img [src]="item.image" alt="" class="w-100 h-75 rounded">
                     <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">
                         <span class="text-light p-1">
-                            {{item.title | slice: 0:15 }}
+                            {{item.title | slice: 0:10 }}
                         </span>
                         <span class="d-flex flex-row ms-auto">
                             <i class="material-icons text-white"
@@ -30,5 +30,10 @@
 </div>
 <ng-template #content let-modal>
 
-    <app-modal [items]="items" [numbers]="numbers" (closes)="closeModal(content)"></app-modal>
+    <app-modal [items]="items" [numbers]="numbers" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
+</ng-template>
+<ng-template #popover let-modal >
+    <div class="modal-header ">
+        <span>Item Added to cart</span>
+    </div>
 </ng-template>
