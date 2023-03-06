@@ -19,7 +19,7 @@ import { MainserviceService } from 'src/app/mainservice.service';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent {
-  constructor(private route:ActivatedRoute,private main:MainserviceService){
+  constructor(private route:ActivatedRoute,private main:MainserviceService,private http: HttpClient){
 
   }
   switchel=1
@@ -31,6 +31,7 @@ id:any
   useres:any
   users:any={}
   addres:any={}
+  products:any
   ngOnInit() {
     this.id=this.route.snapshot.paramMap.get('id')
     this.main.getuser().subscribe((data)=>{
@@ -43,6 +44,10 @@ id:any
       this.addres.street=this.useres[0].address['street']+' '+this.useres[0].address['number']
       this.addres.zipCode=this.useres[0].address['zipcode']
     })
+this.http.get('http://localhost:3000/products?id='+this.id).subscribe((data)=>{
+this.products=data
+this.products=this.products[0]
+})
   
   }
 submitUser(form:any){
@@ -51,6 +56,10 @@ submitUser(form:any){
   this.firstLine=100
 
 }
-userAddress(form:any){}
+userAddress(form:any){
+  this.switchel=3
+  this.thirdDisabled=false
+  this.secondLine=100
+}
 
 }

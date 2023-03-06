@@ -11,14 +11,7 @@ export class CategoryServiceService {
   products:any[]=[]
   product:any[]=[]
   constructor(private http:HttpClient) { }
-  // ngOnInit(){
-  //   this.http.get(this.url2).subscribe((data)=>{
-  //     console.log(data)
-  //   })
-  //   this.http.get(this.url).subscribe((data)=>{
-  //     console.log(data)
-  //   })
-  // }
+
   getCategories(){
     return this.http.get(this.url2)
   }
