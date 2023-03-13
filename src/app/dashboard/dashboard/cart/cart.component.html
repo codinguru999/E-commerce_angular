@@ -12,12 +12,24 @@
                 <span class=" py-auto my-auto me-1 fw-bold">{{sum | currency}} </span>
                 <button class="btn btn-warning">Order Now</button>
             </div>
-            <div  class="container px-0  my-2 p-2 d-flex flex-row rounded" style="height: 20rem; background-color: #f8f9fa;" *ngFor="let key of objectKeys(obj)">
-                <img class="ms-2 my-auto  w-25 h-100" [src]="obj[key].image" alt="">
+            <div  class="container px-0  my-2 p-2 d-flex flex-row rounded" style="height: 20rem; background-color: #f8f9fa;" *ngFor="let key of carts">
+                <div class="container w-25 h-100">
+                    <img class="ms-2 my-auto  w-100 h-75" [src]="key.image" alt="">
+                    <h5 class="my-3 ps-5">Qty. {{key.count}}
+                        <br><span class="fs-6">Deliver By {{date|date}}</span>
+                    </h5>
+                </div>
                 <div class="container w-75 d-flex flex-column align-item-start">
-                    <h5>{{obj[key].title | titlecase}} </h5>
-                    <h6 class="text-success"><del class="text-danger">{{obj[key].price*1.3 | currency}}</del>  {{obj[key].price | currency}} <span class="text-danger"> Save 30%</span></h6>
-                    <h5 class="my-3">Qty. {{obj[key].count}}</h5>
+                    <h5>{{key.title | titlecase}} </h5>
+                    <span class="py-auto">
+                        <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:key.rating.rate">star</i> <span>({{key.rating.count}})</span>
+                    </span>
+                    <h6 class="text-success fs-5"><del class="text-danger fs-6">{{key.price*1.3 | currency}}</del>  {{key.price | currency}} <span class="text-danger fs-6"> Save 30%</span></h6>
+                   <div class="container d-flex flex-row mx-0 ms-0 ps-0">
+                    
+                       <button class="btn btn-light border border-1 m-2" (click)="removeItem(key)">Remove</button>
+                       <button class="btn btn-light border border-1 m-2" (click)="buyProduct(key)">Buy it Now</button>
+                    </div>
                 </div>
             </div>
         </ng-template>

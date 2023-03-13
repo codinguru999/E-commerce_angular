@@ -37,20 +37,18 @@ export class ModalComponent {
     })
   }
   updateProduct(item: any) {
-    console.log(item.id)
-    // console.log(this.user[0]);
-    let id = this.user[0].id
-    this.user[0].orders.push(item)
-    this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
-      // console.log(data)
-    })
     this.router.navigateByUrl('/dashboard/buy/' + item.id)
     this.modalClose()
   }
   updateCartProduct(item: any) {
 
     // console.log(this.user[0]);
+    let id = this.user[0].id
+    this.user[0].cart.push(item)
     
+    this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
+      // console.log(data)
+    })
     this.popove.emit()
   }
   modalClose() {

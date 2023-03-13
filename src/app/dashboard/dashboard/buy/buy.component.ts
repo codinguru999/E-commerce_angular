@@ -46,6 +46,8 @@ export class BuyComponent {
       this.addres.city = this.useres[0].address['city']
       this.addres.street = this.useres[0].address['street'] + ' ' + this.useres[0].address['number']
       this.addres.zipCode = this.useres[0].address['zipcode']
+      // console.log(this.useres[0].cart);
+      
     })
     this.http.get('http://localhost:3000/products?id=' + this.id).subscribe((data) => {
       this.products = data
@@ -66,7 +68,7 @@ export class BuyComponent {
   }
   updateUser(){
     let id = this.useres[0].id
-    this.useres[0].cart.push(this.products)
+    this.useres[0].orders.push(this.products)
     
     this.main.updateOrdersUser(this.useres[0], id).subscribe((data) => {
       // console.log(data)
