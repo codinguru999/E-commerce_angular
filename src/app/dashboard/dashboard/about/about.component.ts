@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/mainservice.service';
 
@@ -11,9 +12,10 @@ export class AboutComponent {
 userdetails:any
 blank=false
 obj:any={}
+numbers=[1,2,3,4,5]
 objectKeys = Object.keys;
 
-constructor(private main:MainserviceService){}
+constructor(private main:MainserviceService,private router:Router){}
 ngOnInit(){
 this.main.getuser().subscribe(data=>{
   this.userdetails=data
@@ -30,17 +32,12 @@ this.main.getuser().subscribe(data=>{
 
 userorders(details:any){
   
-  this.userdetails=details[0].orders
-  for (let ob of this.userdetails){
-    let i=ob.id
-    if(i in this.obj){
-      this.obj[i]['count']++
-    }
-    else{
-      ob['count']=1
-      this.obj[i]=ob
-    }
-  }
+  this.obj=details[0].orders
+  
+}
+buyProduct(item: any) {
+  // this.removeItem(item)
+  this.router.navigateByUrl('/dashboard/buy/' + item.id)
 }
 
 }

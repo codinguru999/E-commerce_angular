@@ -10,7 +10,7 @@
         <ng-template #elseBlock>
             <div class="d-flex flex-row justify-content-end align-items-end w-25 ms-auto me-5 px-4">
                 <span class=" py-auto my-auto me-1 fw-bold">{{sum | currency}} </span>
-                <button class="btn btn-warning">Order Now</button>
+                <button class="btn btn-warning" (click)="multiplebuy()">Order Now</button>
             </div>
             <div  class="container px-0  my-2 p-2 d-flex flex-row rounded" style="height: 20rem; background-color: #f8f9fa;" *ngFor="let key of carts">
                 <div class="container w-25 h-100">

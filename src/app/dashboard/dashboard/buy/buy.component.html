@@ -63,7 +63,7 @@
       <p>{{addres.city}}, {{addres.street}} <br>{{addres.zipCode}}</p>
       <span>{{users.phone}}</span>
     </div>
-    <div class="container bg-light d-flex flex-row mt-2">
+    <div class="container bg-light d-flex flex-row mt-2" *ngIf="!multipleBuy; else elseBlock">
       <img [src]="products.image" class="w-25" alt="">
       <div class="container d-flex flex-column w-75 m-2">
         <h6>{{products.title }}</h6>
@@ -73,10 +73,30 @@
         </span>
         <span class="text-success fs-5"><del class="text-danger fs-6">{{products.price*1.4 | currency}}</del>
           {{products.price| currency}} <span class="text-danger fs-6">30% Off</span></span>
-      </div>
+          <h4>Qty. <button class="btn btn-light"(click)="counter('-')">-</button> <span class="py-1 px-2 border border-1">{{count}}</span><button class="btn btn-light" (click)="counter('+')">+</button></h4>
+        </div>
     </div>
-    <span class="my-2 ps-1 pt-3">Deliver by {{dates |date}}</span>
-    <br>
+    <ng-template #elseBlock>
+      <div class="container bg-light d-flex flex-row mt-2" *ngFor="let product of productList">
+        <img [src]="product.image" class="w-25" alt="">
+        <div class="container d-flex flex-column w-75 m-2">
+          <h6>{{product.title }}</h6>
+          <span class="d-flex flex-row">
+            <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:product.rating.rate">star</i>
+            <span>({{product.rating.count}})</span>
+          </span>
+          <span class="text-success fs-5"><del class="text-danger fs-6">{{product.price*1.4 | currency}}</del>
+            {{product.price| currency}} <span class="text-danger fs-6">30% Off</span></span>
+            <h4>Qty. <span class="py-1 px-2 border border-1">{{product.count}}</span></h4>
+        </div>
+      </div>    
+    </ng-template>
+    <div class="container-fluid d-flex flex-row my-2">
+      <span class="ps-1 my-auto me-auto">Delivered by {{dates |date}}</span>
+      <span class="fs-5 text-success ms-auto" *ngIf="!multipleBuy">Total Cost: {{products.price*count| currency}}</span>
+      <span class="fs-5 text-success ms-auto" *ngIf="multipleBuy">Total Cost: {{sum| currency}}</span>
+    </div>
+    
     <button class="btn btn-primary my-2" (click)="updateUser()">Confirm</button>
   </div>
 
