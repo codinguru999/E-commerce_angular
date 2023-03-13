@@ -1,43 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-primary text-white bg-primary mb-0 px-3 py-1">
-    <a class="text-white fw-bold navbar-brand" [routerLink]="'dashboard/home'" *ngIf="islogin; else elseBlock">
+  <a class="text-white fw-bold navbar-brand" [routerLink]="'dashboard/home'" *ngIf="islogin; else elseBlock">
+    {{title}}
+  </a>
+  <ng-template #elseBlock>
+
+    <a class="text-white fw-bold navbar-brand" [routerLink]="''">
       {{title}}
     </a>
-    <ng-template #elseBlock>
+  </ng-template>
 
-      <a class="text-white fw-bold navbar-brand" [routerLink]="''" >
-        {{title}}
-      </a>
-    </ng-template>
-  
-    <button class="navbar-toggler text-info" type="button"
-            (click)="toggleNavbar()">
-      <span class="navbar-toggler-icon text-white"></span>
-    </button>
-  
-  
-    <div class="collapse navbar-collapse"
-         [ngClass]="{ 'show': hamburger }">
-      <ul class="navbar-nav mr-auto" *ngIf="islogin">
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/home'" routerLinkActive="active-link">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/orders'" routerLinkActive="active-link">Your Orders</a>
-        </li>
-  
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/cart'" routerLinkActive="active-link">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" [routerLink]="'dashboard/category'" routerLinkActive="active-link">Categories</a>
-        </li>
-      </ul>
-        <div class="d-flex ms-auto me-2">
-          <li class="d-flex ms-auto me-2 fw-bold nav-item p-2">{{username |uppercase}}</li>
-          <button class="btn btn-danger text-light" (click)="logout()" *ngIf="islogin">Logout</button>
+  <button class="navbar-toggler text-info" type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
 
-        </div>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': hamburger }">
+    <ul class="navbar-nav mr-auto" *ngIf="islogin">
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="'dashboard/home'" routerLinkActive="active-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="'dashboard/orders'" routerLinkActive="active-link">Your Orders</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="'dashboard/cart'" routerLinkActive="active-link">Cart</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="'dashboard/category'" routerLinkActive="active-link">Categories</a>
+      </li>
+    </ul>
+    <div class="d-flex ms-auto me-2" *ngIf="islogin">
+      <li class="d-flex ms-auto me-2 fw-bold nav-item p-2" (click)="changeclass=!changeclass">{{uname |uppercase}}</li>
+      <div [ngClass]="getclass()"
+        style="width: fit-content;">
+        <h6 class="text-center">{{name | titlecase}}</h6>
+        <h6 class="text-center">{{email}}</h6>
+        <button class="btn btn-danger text-light" (click)="logout()" *ngIf="islogin">Logout</button>
       </div>
-    
-    
-  </nav>
+    </div>
+  </div>
+</nav>

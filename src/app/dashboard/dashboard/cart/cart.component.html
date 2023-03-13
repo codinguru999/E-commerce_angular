@@ -4,7 +4,7 @@
         <div class="container text-danger text-center" *ngIf="!blank; else elseBlock">
             <h3 class="text-center">Your Cart is Empty</h3>
             <span class="mx-auto text-success fs-5">
-                <a [routerLink]="['/dashboard']">Order Now</a>
+                <a [routerLink]="['/dashboard']">Add Now</a>
             </span>
         </div>
         <ng-template #elseBlock>

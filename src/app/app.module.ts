@@ -25,7 +25,7 @@ import { LoginguardGuard } from './loginguard.guard';
 // import { CartComponent } from './cart/cart.component';
 // import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './dashboard/header/header.component';
-import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { NoRouteComponent } from './no-route/no-route.component';
 // import { FooterComponent } from './dashboard/footer/footer.component';
 // import { HomeComponent } from './dashboard/home/home.component';
@@ -45,7 +45,7 @@ import { NoRouteComponent } from './no-route/no-route.component';
     BrowserModule, FormsModule, HttpClientModule,
      RouterModule.forRoot(routerList),AppRoutingModule, BrowserAnimationsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule, NgbModule
   ],
-  providers: [LoginguardGuard],
+  providers: [LoginguardGuard,NgbTooltip],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

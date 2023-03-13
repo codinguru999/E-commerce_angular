@@ -12,6 +12,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './buy/buy.component';
 import { FormsModule } from '@angular/forms';
+import { NgbdCarouselPause } from './carosal';
 
 // import {}
 
@@ -24,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     DashboardRoutingModule
   ],
-  providers:[NgbActiveModal],
+  providers:[NgbActiveModal,NgbdCarouselPause],
   // entryComponents:[ModalComponent]?
 })
 export class DashboardModule { }
