@@ -50,12 +50,7 @@ export class ModalComponent {
   updateCartProduct(item: any) {
 
     // console.log(this.user[0]);
-    let id = this.user[0].id
-    this.user[0].cart.push(item)
     
-    this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
-      // console.log(data)
-    })
     this.popove.emit()
   }
   modalClose() {

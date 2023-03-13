@@ -2,7 +2,7 @@
     <h1 class="text-center text-success m-3">Your Cart</h1>
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center px-0">
         <div class="container text-danger text-center" *ngIf="!blank; else elseBlock">
-            <h3 class="text-center">Your order list is Empty</h3>
+            <h3 class="text-center">Your Cart is Empty</h3>
             <span class="mx-auto text-success fs-5">
                 <a [routerLink]="['/dashboard']">Order Now</a>
             </span>
@@ -18,7 +18,6 @@
                     <h5>{{obj[key].title | titlecase}} </h5>
                     <h6 class="text-success"><del class="text-danger">{{obj[key].price*1.3 | currency}}</del>  {{obj[key].price | currency}} <span class="text-danger"> Save 30%</span></h6>
                     <h5 class="my-3">Qty. {{obj[key].count}}</h5>
-
                 </div>
             </div>
         </ng-template>
