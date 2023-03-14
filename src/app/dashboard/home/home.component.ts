@@ -32,6 +32,8 @@ export class HomeComponent {
      
       this.changelist(this.product)
     })
+    localStorage.setItem('buy',JSON.stringify(false))
+
   }
   changelist(products: any) {
     let array: object[] = []

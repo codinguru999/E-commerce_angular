@@ -22,6 +22,8 @@ export class CartComponent {
 
   constructor(private main: MainserviceService, private router: Router, private order: OrderServiceService) { }
   ngOnInit() {
+    localStorage.setItem('buy',JSON.stringify(false))
+
     this.main.getuser().subscribe(data => {
       this.userdetails = data
       this.user = this.userdetails[0]
@@ -71,6 +73,7 @@ export class CartComponent {
   }
   buyProduct(item: any) {
     // this.removeItem(item)
+    localStorage.setItem('buy',JSON.stringify(true))
     this.router.navigateByUrl('/dashboard/buy/' + item.id)
   }
   removeItem(item: any) {
@@ -107,6 +110,7 @@ export class CartComponent {
   multiplebuy() {
     this.order.multipleBuy = true
     this.order.cart = this.carts
+    localStorage.setItem('buy',JSON.stringify(true))
     this.router.navigateByUrl('/dashboard/buy')
 
   }

@@ -22,6 +22,8 @@ export class CategoryComponent {
   }
   ngOnInit() {
     // console.log('data')
+    localStorage.setItem('buy',JSON.stringify(false))
+
     this.service.getCategories().subscribe((data) => {
       // console.log(data)
       this.categories = data

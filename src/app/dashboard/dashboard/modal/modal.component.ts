@@ -37,10 +37,11 @@ export class ModalComponent {
     })
   }
   updateProduct(item: any) {
+    localStorage.setItem('buy',JSON.stringify(true))
     this.router.navigateByUrl('/dashboard/buy/' + item.id)
     this.modalClose()
   }
-  updateCartProduct(item: any) {
+  updateCartProduct(item: any){
 
     // console.log(this.user[0]);
     let id = this.user[0].id

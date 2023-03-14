@@ -17,6 +17,8 @@ objectKeys = Object.keys;
 
 constructor(private main:MainserviceService,private router:Router){}
 ngOnInit(){
+  localStorage.setItem('buy',JSON.stringify(false))
+
 this.main.getuser().subscribe(data=>{
   this.userdetails=data
   if(this.userdetails[0].orders[0]===undefined){
@@ -37,6 +39,8 @@ userorders(details:any){
 }
 buyProduct(item: any) {
   // this.removeItem(item)
+  localStorage.setItem('buy',JSON.stringify(true))
+
   this.router.navigateByUrl('/dashboard/buy/' + item.id)
 }
 

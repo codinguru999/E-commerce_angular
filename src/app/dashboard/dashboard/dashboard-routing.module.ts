@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BuyComponent } from './buy/buy.component';
+import { BuygGuard } from './buyg.guard';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { DashboardComponent } from './dashboard.component';
@@ -14,8 +15,8 @@ const routes: Routes = [
     children: [
       { path: "home", component: HomeComponent },
       { path: 'orders', component: AboutComponent },
-      { path: 'buy', component: BuyComponent },
-      { path: 'buy/:id', component: BuyComponent },
+      { path: 'buy', component: BuyComponent ,canActivate:[BuygGuard]},
+      { path: 'buy/:id', component: BuyComponent,canActivate:[BuygGuard] },
       { path: 'cart', component: CartComponent },
       { path: 'category', component: CategoryComponent },
       // {path:'dashboard/home/:name',component:HomeComponent},
