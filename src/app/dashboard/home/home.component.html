@@ -1,12 +1,12 @@
 <ngbd-carousel-pause></ngbd-carousel-pause>
 <!-- <h1>Home works</h1> -->
-<div class="container-fluid bg-info mt-0 pt-3">
+<div class="container-fluidmt-0 pt-3">
     <div class="container">
         <div class="row m-3" *ngFor="let product of products">
             <div class="col my-2 mx-1" *ngFor="let item of product" style="height: 22.5rem;">
                 <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
-                    <img [src]="item.image" alt="" class="w-100 h-75 rounded">
-                    <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">
+                    <img [src]="item.image" alt="" class="w-100 h-75 rounded" (click)="openimage(imageshow,item.image)">
+                    <div class="container-fluid d-flex flex-row justify-content-space-between p-1 " style="background-color: rgb(55, 16, 112);">
                         <span class="text-light p-1">
                             {{item.title | slice: 0:10 }}
                         </span>
@@ -15,7 +15,7 @@
                                 *ngFor="let number of numbers |slice: 0:item.rating.rate">star</i>
                         </span>
                     </div>
-                    <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1">
+                    <div class="container-fluid d-flex flex-row justify-content-space-between p-1" style="background-color: rgb(55, 16, 112);">
                         <span class="text-light ps-1 py-2">{{item.price | currency}}</span>
                         <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(content,item)">
                             View More
@@ -36,5 +36,10 @@
 <ng-template #popover let-modal >
     <div class="modal-header ">
         <span>Item Added to cart</span>
+    </div>
+</ng-template>
+<ng-template #imageshow let-modal>
+    <div class="modal-body">
+        <img [src]="image" alt="" class="w-100 h-50">
     </div>
 </ng-template>

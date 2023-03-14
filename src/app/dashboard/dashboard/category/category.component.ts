@@ -15,6 +15,7 @@ export class CategoryComponent {
   product: any
   items: any
   numbers = [1, 2, 3, 4, 5]
+  image: any;
   // modalService: any;
   constructor(private service: CategoryServiceService,private modalService:NgbModal) {
     // console.log("Category page Called")
@@ -52,5 +53,8 @@ export class CategoryComponent {
    setTimeout(()=>{this.modalService.dismissAll()},1000) 
 
   }
-
+  openimage(imag:any,image:any){
+    this.image=image
+        this.modalService.open(imag,{size:'sm',centered:true})
+      }
 }

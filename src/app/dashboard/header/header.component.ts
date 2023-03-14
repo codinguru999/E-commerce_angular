@@ -79,10 +79,10 @@ export class HeaderComponent {
   }
   getclass(){
     if(this.changeclass==true){
-      return 'container  bg-secondary d-none  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
+      return 'container  d-none  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
     }
     else{
-      return 'container  bg-secondary d-flex  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
+      return 'container  d-flex  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
     }
   }
 }

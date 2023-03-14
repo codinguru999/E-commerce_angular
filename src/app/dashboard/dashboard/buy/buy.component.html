@@ -14,7 +14,7 @@
 
 <div class="container m-4 w-75 mx-auto d-flex flex-column justify-content-center align-items-center"
   [ngSwitch]="switchel">
-  <div class="container border border-2 rounded p-3  w-50" *ngSwitchCase="1">
+  <div class="container border border-2  text-light rounded p-3  w-50" *ngSwitchCase="1">
     <form #user="ngForm" (ngSubmit)="submitUser(user)">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -35,7 +35,7 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  <div class="container border border-2 rounded p-3  w-50" *ngSwitchCase="2">
+  <div class="container border border-2 rounded p-3 text-light  w-50" *ngSwitchCase="2">
     <form #address="ngForm" (ngSubmit)="userAddress(address)">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">City</label>
@@ -56,14 +56,14 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  <div class="container border  border-2 rounded p-3  w-50" style="background-color: #f8f9fa;" *ngSwitchCase="3">
-    <div class="container d-flex flex-column">
+  <div class="container border  border-2 rounded p-3  w-50" style="  background: linear-gradient(to top left, #c31432, #240b36); " *ngSwitchCase="3">
+    <div class="container d-flex text-light flex-column">
       <h5>Deliver To:</h5>
       <span class="fw-bold fs-4">{{users.name}}</span>
       <p>{{addres.city}}, {{addres.street}} <br>{{addres.zipCode}}</p>
       <span>{{users.phone}}</span>
     </div>
-    <div class="container bg-light d-flex flex-row mt-2" *ngIf="!multipleBuy; else elseBlock">
+    <div class="container text-light d-flex flex-row mt-2" *ngIf="!multipleBuy; else elseBlock">
       <img [src]="products.image" class="w-25" alt="">
       <div class="container d-flex flex-column w-75 m-2">
         <h6>{{products.title }}</h6>
@@ -71,13 +71,13 @@
           <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:products.rating.rate">star</i>
           <span>({{products.rating.count}})</span>
         </span>
-        <span class="text-success fs-5"><del class="text-danger fs-6">{{products.price*1.4 | currency}}</del>
+        <span class="text-success fw-bold fs-5"><del class="text-danger fs-6">{{products.price*1.4 | currency}}</del>
           {{products.price| currency}} <span class="text-danger fs-6">30% Off</span></span>
-          <h4>Qty. <button class="btn btn-light"(click)="counter('-')">-</button> <span class="py-1 px-2 border border-1">{{count}}</span><button class="btn btn-light" (click)="counter('+')">+</button></h4>
+          <h4>Qty. <button class="btn text-light"(click)="counter('-')">-</button> <span class="py-1 px-2 border border-1">{{count}}</span><button class="btn text-light" (click)="counter('+')">+</button></h4>
         </div>
     </div>
     <ng-template #elseBlock>
-      <div class="container bg-light d-flex flex-row mt-2" *ngFor="let product of productList">
+      <div class="container text-light d-flex flex-row mt-2" *ngFor="let product of productList">
         <img [src]="product.image" class="w-25" alt="">
         <div class="container d-flex flex-column w-75 m-2">
           <h6>{{product.title }}</h6>
@@ -85,16 +85,16 @@
             <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:product.rating.rate">star</i>
             <span>({{product.rating.count}})</span>
           </span>
-          <span class="text-success fs-5"><del class="text-danger fs-6">{{product.price*1.4 | currency}}</del>
+          <span class="text-success fw-bold fs-5"><del class="text-danger fs-6">{{product.price*1.4 | currency}}</del>
             {{product.price| currency}} <span class="text-danger fs-6">30% Off</span></span>
             <h4>Qty. <span class="py-1 px-2 border border-1">{{product.count}}</span></h4>
         </div>
       </div>    
     </ng-template>
-    <div class="container-fluid d-flex flex-row my-2">
+    <div class="container-fluid text-light d-flex flex-row my-2">
       <span class="ps-1 my-auto me-auto">Delivered by {{dates |date}}</span>
-      <span class="fs-5 text-success ms-auto" *ngIf="!multipleBuy">Total Cost: {{products.price*count| currency}}</span>
-      <span class="fs-5 text-success ms-auto" *ngIf="multipleBuy">Total Cost: {{sum| currency}}</span>
+      <span class="fs-5 fw-bold text-success ms-auto" *ngIf="!multipleBuy">Total Cost: {{products.price*count| currency}}</span>
+      <span class="fs-5 fw-bold text-success ms-auto" *ngIf="multipleBuy">Total Cost: {{sum| currency}}</span>
     </div>
     
     <button class="btn btn-primary my-2" (click)="updateUser()">Confirm</button>

@@ -1,15 +1,15 @@
 <ngbd-carousel-pause></ngbd-carousel-pause>
 
-<div class="container-fluid d-flex flex-column bg-info pt-0">
+<div class="container-fluid d-flex flex-column  pt-0">
     <div class="container d-flex flex-column">
         <div class="row m-3" *ngFor="let category of categories">
-            <h1>{{category | titlecase}}</h1>
+            <h1 class="text-light">{{category | titlecase}}</h1>
             <hr>
             <div class="d-flex flex-row" >
                 <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]" style="height: 22.5rem;">
                     <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
-                        <img [src]="prod.image" alt="" class="w-100 h-75 rounded">
-                        <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1 ">
+                        <img [src]="prod.image" alt="" class="w-100 h-75 rounded"(click)=openimage(imageshow,prod.image)>
+                        <div class="container-fluid d-flex flex-row justify-content-space-between  p-1 " style="background-color: rgb(55, 16, 112);">
                             <span class="text-light p-1">
                                 {{prod.title | slice: 0:15 }}
                             </span>
@@ -18,7 +18,7 @@
                                     *ngFor="let number of numbers |slice: 0:prod.rating.rate">star</i>
                             </span>
                         </div>
-                        <div class="container-fluid d-flex flex-row justify-content-space-between bg-secondary p-1">
+                        <div class="container-fluid d-flex flex-row justify-content-space-between p-1" style="background-color: rgb(55, 16, 112);">
                             <span class="text-light ps-1 py-2">{{prod.price | currency}}</span>
                             <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(content,prod)">
                                 View More
@@ -39,5 +39,10 @@
 <ng-template #popover let-modal >
     <div class="modal-header ">
         <span>Item Added to cart</span>
+    </div>
+</ng-template>
+<ng-template #imageshow let-modal>
+    <div class="modal-body">
+        <img [src]="image" alt="" class="w-100 h-50">
     </div>
 </ng-template>

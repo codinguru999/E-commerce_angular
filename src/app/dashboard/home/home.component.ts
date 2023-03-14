@@ -17,6 +17,7 @@ export class HomeComponent {
   items:any
   products: any[]=[]
   numbers=[1,2,3,4,5]
+  image:any
   constructor(private serv: HomeserviceService,private modalService: NgbModal) {
     
   }
@@ -69,5 +70,9 @@ export class HomeComponent {
     this.modalService.open(pop,{size:'sm'})
    setTimeout(()=>{this.modalService.dismissAll()},1000) 
 
+  }
+  openimage(imag:any,image:any){
+this.image=image
+    this.modalService.open(imag,{size:'sm',centered:true})
   }
 }

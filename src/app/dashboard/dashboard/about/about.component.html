@@ -8,19 +8,19 @@
             </span>
         </div>
         <ng-template #elseBlock>
-            <div  class="container px-0  my-2 p-3 d-flex flex-row rounded" style="height: 18rem; background-color: #f8f9fa;" *ngFor="let key of obj">
-                <div class="container w-25 h-100">
+            <div  class="container px-0  my-2 p-3 d-flex flex-row rounded" style="height: 18rem;background: linear-gradient(to right, #b92b27, #1565c0);" *ngFor="let key of obj">
+                <div class="container text-light w-25 h-100">
                     <img class="ms-2 my-auto  w-100 h-75" [src]="key.image" alt="">
                     <h5 class="my-3 ps-5">Qty. {{key.count}}
                        
                     </h5>
                 </div>
-                <div class="container w-75 d-flex flex-column align-item-start">
+                <div class="container text-light w-75 d-flex flex-column align-item-start">
                     <h5>{{key.title | titlecase}} </h5>
                     <span class="py-auto">
                         <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:key.rating.rate">star</i> <span>({{key.rating.count}})</span>
                     </span>
-                    <h6 class="text-success"><span class="fs-6">Delivered On {{key.deliverDate|date}}</span></h6>
+                    <h6><span class="fs-6">Delivered On {{key.deliverDate|date}}</span></h6>
                     <!-- <h6 class="text-success fs-5"><del class="text-danger fs-6">{{key.price*1.3 | currency}}</del>  {{key.price | currency}} <span class="text-danger fs-6"> Save 30%</span></h6> -->
                    <div class="container d-flex flex-row mx-0 ms-0 ps-0">
                     
