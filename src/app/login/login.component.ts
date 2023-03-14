@@ -17,6 +17,7 @@ export class LoginComponent {
   parsedData: any
   wrnpass = true
   name:any
+  logins=false
   // isLoginValid=false
   constructor(private logserv: LoginServiceService, private router: Router,private main:MainserviceService) { }
 
@@ -36,6 +37,9 @@ export class LoginComponent {
         this.verify()
 
       })
+    }
+    else{
+      this.logins=true
     }
   }
   verify() {

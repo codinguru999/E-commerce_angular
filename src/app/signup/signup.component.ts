@@ -14,6 +14,7 @@ export class SignupComponent {
   exist=false
   gdata: any
   url:any
+  signups=false
   constructor(private signserv:SignupServiceService,private router: Router,private main:MainserviceService){
     
   }
@@ -42,6 +43,9 @@ ngOnInit(){
     }
   }
   submitForm(form:any){
+    if(form.invalid){
+      this.signups=true
+    }
     this.signserv.getItem(this.signup.email).subscribe((data)=>{
       this.gdata=data
       // console.log(data)

@@ -7,14 +7,14 @@
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input name="name" type="text" autocomplete="off" required [(ngModel)]="signup.name" #name="ngModel"
         [class]="setClass(name)"  aria-describedby="emailHelp">
-     <span *ngIf="name.invalid && signupForm.invalid  && signupForm.touched">Please Enter Your Username</span>
+     <span *ngIf="name.invalid && name.touched || signups && name.invalid">Please Enter Your Username</span>
         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input name="email" type="email" autocomplete="off" email required [(ngModel)]="signup.email" #email="ngModel"
         [class]="setClass(email)" aria-describedby="emailHelp">
-        <span *ngIf="email.invalid && signupForm.invalid  && signupForm.touched">Please Enter Proper Email</span>
+        <span *ngIf="email.invalid && email.touched || signups && email.invalid">Please Enter Proper Email</span>
 
         <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
     </div>
@@ -22,7 +22,7 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input name="password" type="password" minlength="8" required [(ngModel)]="signup.password" #password="ngModel"
         [class]="setClass(password)" id="InputPassword1">
-        <span *ngIf="password.invalid && signupForm.invalid && signupForm.touched">Password length should be greater than or equal to 8</span>
+        <span *ngIf="password.invalid && password.touched || signups && password.invalid">Password length should be greater than or equal to 8</span>
 
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
