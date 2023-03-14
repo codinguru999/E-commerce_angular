@@ -1,5 +1,5 @@
 <h3 class="m-auto text-center text-info my-3">Log In</h3>
-<form class="container text-light mx-auto w-50 border border-info p-4 rounded" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+<form class="container-md text-light mx-auto w-50 border border-info p-4 rounded" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
     <div class="mx-auto text-center" *ngIf="!userexist">User not exist <a [routerLink]="''">SignUp</a></div>
     <div class="mb-3 form-group">
         <label for="email" class="form-label">Email</label>

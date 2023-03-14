@@ -1,5 +1,5 @@
 <h3 class="m-auto text-center text-info my-3">Sign Up</h3>
-<form class="container text-light mx-auto w-50 border border-info p-4 rounded" #signupForm="ngForm"
+<form class="container-md text-light mx-auto w-50 border border-info p-4 rounded" #signupForm="ngForm"
     (ngSubmit)="submitForm(signupForm)" id="forms">
     <div *ngIf="exist" class="mx-auto text-center ">User Already Exist! <a routerLink="'login">Login</a></div>
 
