@@ -9,13 +9,11 @@
         </div>
         <ng-template #elseBlock>
             <div  class="container px-0  my-2 p-3 d-flex flex-row rounded" style="height: 18rem;background: linear-gradient(to right, #b92b27, #1565c0);" *ngFor="let key of obj">
-                <div class="container text-light w-25 h-100">
+                <div class="container text-light w-25 h-100" id="imagecontainer">
                     <img class="ms-2 my-auto  w-100 h-75" [src]="key.image" alt="">
-                    <h5 class="my-3 ps-5">Qty. {{key.count}}
-                       
-                    </h5>
+                    <h5 class="my-3 ps-3 text-nowrap">Qty. {{key.count}}</h5>
                 </div>
-                <div class="container text-light w-75 d-flex flex-column align-item-start">
+                <div class="container text-light w-75 d-flex flex-column align-item-start" id="titlecontainer">
                     <h5>{{key.title | titlecase}} </h5>
                     <span class="py-auto">
                         <i class="material-icons text-warning" *ngFor="let number of numbers |slice: 0:key.rating.rate">star</i> <span>({{key.rating.count}})</span>
@@ -25,7 +23,7 @@
                    <div class="container d-flex flex-row mx-0 ms-0 ps-0">
                     
                        <!-- <button class="btn btn-light border border-1 m-2" (click)="removeItem(key)">Remove</button> -->
-                       <button class="btn btn-light border border-1 m-2" (click)="buyProduct(key)">Order It Again</button>
+                       <button class="btn btn-light text-wrap border border-1 m-2" (click)="buyProduct(key)">Order It Again</button>
                     </div>
                 </div>
             </div>

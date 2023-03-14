@@ -8,3 +8,12 @@
 .light-blue-backdrop {
     background-color: #5cb3fd;
 }
+@media screen and (max-width: 600px) {
+    #imagecontainer{
+        width: 50% !important;
+    }
+    #titlecontainer{
+        width: 50% !important;
+    }
+    
+}

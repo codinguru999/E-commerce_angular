@@ -9,15 +9,15 @@
     </a>
   </ng-template>
 
-  <button class="navbar-toggler text-info" type="button" (click)="toggleNavbar()">
-    <span class="navbar-toggler-icon text-white"></span>
+  <button class="navbar-toggler text-light" *ngIf="islogin"  type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
   </button>
 
 
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': hamburger }">
-    <ul class="navbar-nav mr-auto" *ngIf="islogin">
+    <ul class="navbar-nav mr-auto" *ngIf="islogin" (click)="hidetoggle()">
       <li class="nav-item">
-        <a class="nav-link text-white" [routerLink]="'dashboard/home'" routerLinkActive="active-link">Home</a>
+        <a class="nav-link text-white" [routerLink]="'dashboard/home'"  routerLinkActive="active-link">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" [routerLink]="'dashboard/orders'" routerLinkActive="active-link">Your Orders</a>
@@ -30,8 +30,8 @@
         <a class="nav-link text-white" [routerLink]="'dashboard/category'" routerLinkActive="active-link">Categories</a>
       </li>
     </ul>
-    <div class="d-flex ms-auto me-2" *ngIf="islogin">
-      <li class="d-flex ms-auto me-2 fw-bold nav-item p-2" (click)="changeclass=!changeclass">{{uname |uppercase}}</li>
+    <div class="d-flex ms-auto  me-2" *ngIf="islogin">
+      <li role="button" class="d-flex ms-auto me-2 fw-bold nav-item p-2" (click)="changeclass=!changeclass">{{uname |uppercase}}</li>
       <div [ngClass]="getclass()"
         style="width: fit-content; z-index: 1; background-color: #23074d;">
         <h6 class="text-center">{{name | titlecase}}</h6>

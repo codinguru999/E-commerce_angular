@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+    #imagecon{
+        width: 50% !important;
+    }
+    #titlecon{
+        width: 50% !important;
+    }
+    
+}

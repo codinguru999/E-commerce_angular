@@ -16,6 +16,8 @@ export class ModalComponent {
   @Output() closes = new EventEmitter<any>();
   @Output() popove = new EventEmitter<any>();
   user: any
+  length=80
+  view=true
   // modal:NgbActiveModal
   constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService, private router: Router) { }
   // @ViewChild('content') mymodal: ElementRef | undefined;
@@ -54,5 +56,19 @@ export class ModalComponent {
   }
   modalClose() {
     this.closes.emit()
+  }
+  showmore(des:string){
+    this.view=false
+    // console.log(des.length);
+    
+    
+    this.length=des.length
+  }
+  showless(des:string){
+    this.view=true
+    // console.log(des.length);
+    
+    
+    this.length=80
   }
 }

@@ -35,12 +35,10 @@ export class AppComponent {
     //     });
   }
   ngOnInit() {
-    // console.log("app component rednders")
+
 
     this.getlogin()
-    // console.log(this.route)
-    // if(this.route.url==")
-    // localStorage.clear()
+   
   }
   getlogin() {
     // console.log("app component renders")

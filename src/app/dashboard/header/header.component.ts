@@ -71,6 +71,7 @@ export class HeaderComponent {
   logout() {
     this.islogin = false
     this.changeclass=true
+    this.hamburger=!this.hamburger
     this.main.subject.next('false')
     localStorage.removeItem('islogin')
     localStorage.removeItem('useremail')
@@ -83,6 +84,11 @@ export class HeaderComponent {
     }
     else{
       return 'container  d-flex  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
+    }
+  }
+  hidetoggle(){
+    if(this.hamburger==true){
+      this.hamburger=false
     }
   }
 }
