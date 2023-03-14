@@ -97,8 +97,14 @@
       <span class="fs-5 fw-bold text-success ms-auto" *ngIf="multipleBuy">Total Cost: {{sum| currency}}</span>
     </div>
     
-    <button class="btn btn-primary my-2" (click)="updateUser()">Confirm</button>
+    <button class="btn btn-primary my-2" (click)="updateUser(popover)">Confirm</button>
   </div>
 
 
 </div>
+
+<ng-template #popover let-modal >
+  <div class="modal-header ">
+      <span>Your Order Has Been Placed</span>
+  </div>
+</ng-template>

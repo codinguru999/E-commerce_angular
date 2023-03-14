@@ -5,7 +5,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/mainservice.service';
 import { OrderServiceService } from '../order-service.service';
 
@@ -20,7 +20,7 @@ import { OrderServiceService } from '../order-service.service';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent {
-  constructor(private route: ActivatedRoute, private main: MainserviceService, private http: HttpClient, private router: Router, private orderserv: OrderServiceService) {
+  constructor(private route: ActivatedRoute, private main: MainserviceService, private http: HttpClient, private router: Router, private orderserv: OrderServiceService, private moadlservice: NgbModal) {
 
   }
   multipleBuy = false
@@ -37,22 +37,22 @@ export class BuyComponent {
   users: any = {}
   addres: any = {}
   products: any
-  productList:any
-  sum=0
+  productList: any
+  sum = 0
   ngOnInit() {
     if (this.route.snapshot.paramMap.has('id')) {
       // this.multipleBuy = false
-      this.orderserv.multipleBuy=false
+      this.orderserv.multipleBuy = false
       this.id = this.route.snapshot.paramMap.get('id')
       this.http.get('http://localhost:3000/products?id=' + this.id).subscribe((data) => {
-      this.products = data
-      this.products = this.products[0]
-    })
+        this.products = data
+        this.products = this.products[0]
+      })
     }
-    else{
-      this.productList=this.orderserv.cart
-      for(let x of this.productList){
-        this.sum+=x.price*x.count
+    else {
+      this.productList = this.orderserv.cart
+      for (let x of this.productList) {
+        this.sum += x.price * x.count
       }
     }
     this.main.getuser().subscribe((data) => {
@@ -67,7 +67,7 @@ export class BuyComponent {
       // console.log(this.useres[0].cart);
 
     })
-    
+
     //  this.dates= this.date.setDate(this.date.getDate()+3)
     this.multipleBuy = this.orderserv.multipleBuy
   }
@@ -82,24 +82,28 @@ export class BuyComponent {
     this.thirdDisabled = false
     this.secondLine = 100
   }
-  updateUser() {
+  updateUser(popover: any) {
     let id = this.useres[0].id
-    if(this.multipleBuy==false){
+    if (this.multipleBuy == false) {
       this.products['count'] = this.count
       this.products['deliverDate'] = this.dates
       this.useres[0].orders.push(this.products)
     }
-    else{
-      for(let x of this.productList){
-        this.sum+=x.price*x.count
+    else {
+      for (let x of this.productList) {
+        this.sum += x.price * x.count
         x['deliverDate'] = this.dates
         this.useres[0].orders.push(x)
         this.useres[0].cart = []
       }
     }
+
     this.main.updateOrdersUser(this.useres[0], id).subscribe((data) => {
       // console.log(data)
-      alert("Your Order is Placed")
+      this.moadlservice.open(popover, { size: 'sm' })
+      setTimeout(() => {
+        this.moadlservice.dismissAll()
+      }, 1000)
       this.router.navigate(['/dashboard'])
     })
 
