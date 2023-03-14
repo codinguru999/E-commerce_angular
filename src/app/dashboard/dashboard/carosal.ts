@@ -10,7 +10,8 @@ import { FormsModule } from '@angular/forms';
 	templateUrl: './carousal.html',
 })
 export class NgbdCarouselPause {
-	images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://picsum.photos/id/${n}/900/500`);
+	images = [22, 8, 46, 96, 98, 104, 70].map((n) => `https://picsum.photos/id/${n}/900/500`);
+	image = [9, 15, 460, 969, 985, 1045, 740].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
 	paused = false;
 	unpauseOnArrow = false;

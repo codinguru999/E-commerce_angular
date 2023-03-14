@@ -23,9 +23,9 @@ import { NgbdCarouselPause } from './carosal';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,NgbdCarouselPause
   ],
-  providers:[NgbActiveModal,NgbdCarouselPause],
+  providers:[NgbActiveModal],
   // entryComponents:[ModalComponent]?
 })
 export class DashboardModule { }

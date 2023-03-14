@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild ,ElementRef} from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdCarouselPause } from '../dashboard/carosal';
+// import { NgbdCarouselPause } from '../dashboard/carosal';
 // import { ModalServiceService } from '../dashboard/modal/modal-service.service';
 import { ModalComponent } from '../dashboard/modal/modal.component';
 import { HomeserviceService } from './homeservice.service';
@@ -17,7 +17,7 @@ export class HomeComponent {
   items:any
   products: any[]=[]
   numbers=[1,2,3,4,5]
-  constructor(private serv: HomeserviceService,private modalService: NgbModal,private carosal:NgbdCarouselPause) {
+  constructor(private serv: HomeserviceService,private modalService: NgbModal) {
     
   }
   @ViewChild('content')

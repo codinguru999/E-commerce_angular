@@ -33,7 +33,7 @@
     <div class="d-flex ms-auto me-2" *ngIf="islogin">
       <li class="d-flex ms-auto me-2 fw-bold nav-item p-2" (click)="changeclass=!changeclass">{{uname |uppercase}}</li>
       <div [ngClass]="getclass()"
-        style="width: fit-content;">
+        style="width: fit-content; z-index: 1;">
         <h6 class="text-center">{{name | titlecase}}</h6>
         <h6 class="text-center">{{email}}</h6>
         <button class="btn btn-danger text-light" (click)="logout()" *ngIf="islogin">Logout</button>
