@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Router,CanActivate,Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'
+import { RouterModule, Router, CanActivate, Routes } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +27,8 @@ import { LoginguardGuard } from './loginguard.guard';
 import { HeaderComponent } from './dashboard/header/header.component';
 import { NgbActiveModal, NgbModule, NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { NoRouteComponent } from './no-route/no-route.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { LoadingInterceptor } from './loading.interceptor';
 // import { FooterComponent } from './dashboard/footer/footer.component';
 // import { HomeComponent } from './dashboard/home/home.component';
 
@@ -34,18 +36,20 @@ import { NoRouteComponent } from './no-route/no-route.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,HeaderComponent, NoRouteComponent
-    
-    
+    SignupComponent, HeaderComponent, NoRouteComponent, SpinnerComponent
+
+
     // ProductsComponent,
     // DashboardComponent,
     // NavComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-     RouterModule.forRoot(routerList),AppRoutingModule, BrowserAnimationsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule, NgbModule
+    RouterModule.forRoot(routerList), AppRoutingModule, BrowserAnimationsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule, MatToolbarModule, MatSidenavModule, MatListModule, NgbModule
   ],
-  providers: [LoginguardGuard,NgbTooltip],
+  providers: [LoginguardGuard, NgbTooltip,{
+    provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
