@@ -138,9 +138,9 @@ export class CartComponent {
     
   }
   ngOnDestroy(){
-    console.log('Cart destroyed')
+    // console.log('Cart destroyed')
     this.main.updateOrdersUser(this.user,this.id).subscribe((data)=>{
-      console.log(data)
+      // console.log(data)
     })
   }
 }

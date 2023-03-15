@@ -57,7 +57,7 @@ export class SignupServiceService {
     }
     this.http.post(this.url, user,this.httpOptions).subscribe(data => {
       this.data = data
-      console.log(data)
+      // console.log(data)
     })
     //  localStorage.setItem(email,JSON.stringify(user))
   }
