@@ -114,4 +114,33 @@ export class CartComponent {
     this.router.navigateByUrl('/dashboard/buy')
 
   }
+  addcount(id:any){
+    // console.log(id)
+    // console.log(this.carts);
+    for(let x of this.carts){
+      if(x.id==id){
+        x.count+=1
+        this.sum+=x.price
+      }
+    }
+    this.user.cart=this.carts
+  }
+  minuscount(id:any){
+    // console.log(id)
+    for(let x of this.carts){
+      if(x.id==id){
+        x.count-=1
+        this.sum-=x.price
+        // console.log(this.carts);
+      }
+    }
+    this.user.cart=this.carts
+    
+  }
+  ngOnDestroy(){
+    console.log('Cart destroyed')
+    this.main.updateOrdersUser(this.user,this.id).subscribe((data)=>{
+      console.log(data)
+    })
+  }
 }
