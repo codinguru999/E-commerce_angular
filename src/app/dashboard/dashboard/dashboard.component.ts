@@ -13,7 +13,7 @@ export class DashboardComponent {
  name:any
  user:any
  ngOnInit(){
-  localStorage.setItem('buy',JSON.stringify(false))
+  // localStorage.setItem('buy',JSON.stringify(false))
  }
 //  constructor(private route:ActivatedRoute,private dasboard:DashboardServiceService,private main:MainserviceService){}
   
