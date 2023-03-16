@@ -1,6 +1,6 @@
 import { NgSwitch, NgSwitchCase, NgFor, SlicePipe, CurrencyPipe, DatePipe, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 // import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -39,6 +39,10 @@ export class BuyComponent {
   products: any
   productList: any
   sum = 0
+  @ViewChild('btn1')
+  btn1!: ElementRef;
+  @ViewChild('btn2')
+  btn2!: ElementRef;
   ngOnInit() {
     if (this.route.snapshot.paramMap.has('id')) {
       // this.multipleBuy = false
@@ -72,12 +76,19 @@ export class BuyComponent {
     this.multipleBuy = this.orderserv.multipleBuy
   }
   submitUser(form: any) {
+    this.btn1.nativeElement.innerHTML='&#x2713;'
+    this.btn1.nativeElement.classList.remove('btn-primary')
+    this.btn1.nativeElement.classList.add('btn-success')
+
     this.switchel = 2
     this.secondDisabled = false
     this.firstLine = 100
 
   }
   userAddress(form: any) {
+    this.btn2.nativeElement.innerHTML='&#x2713;'
+    this.btn2.nativeElement.classList.remove('btn-primary')
+    this.btn2.nativeElement.classList.add('btn-success')
     this.switchel = 3
     this.thirdDisabled = false
     this.secondLine = 100

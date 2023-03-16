@@ -1,11 +1,11 @@
 <h1 class="text-center mt-4 text-primary">Confirm You Order</h1>
 <div class="container-fluid mt-3 p-2 w-50 mx-auto  d-flex flex-row justify-content-center align-items-center">
 
-  <button class="btn btn-primary rounded-pill">1</button>
-  <span class="w-25 my-auto"><ngb-progressbar style="height: 3px;" type="primary"
+  <button class="btn btn-primary rounded-pill" #btn1>1</button>
+  <span class="w-25 my-auto"><ngb-progressbar style="height: 3px;" type="success"
       [value]="firstLine"></ngb-progressbar></span>
-  <button class="btn btn-primary rounded-pill" [disabled]='secondDisabled'>2</button>
-  <span class="w-25 my-auto"><ngb-progressbar style="height: 3px;" type="primary"
+  <button class="btn btn-primary rounded-pill" #btn2 [disabled]='secondDisabled'>2</button>
+  <span class="w-25 my-auto"><ngb-progressbar style="height: 3px;" type="success"
       [value]="secondLine"></ngb-progressbar></span>
   <button class="btn btn-primary rounded-pill" [disabled]='thirdDisabled'>3</button>
 </div>
