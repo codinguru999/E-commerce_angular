@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SignupServiceService } from './signup-service.service';
 import { Location } from '@angular/common';
-import { NavigationStart, Route, Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Route, Router } from '@angular/router';
 import { MainserviceService } from '../mainservice.service';
 
 @Component({
@@ -15,16 +15,19 @@ export class SignupComponent {
   gdata: any
   url:any
   signups=false
-  constructor(private signserv:SignupServiceService,private router: Router,private main:MainserviceService){
+  constructor(private signserv:SignupServiceService,private router: Router,private main:MainserviceService,private route:ActivatedRoute){
     
   }
 ngOnInit(){
   // localStorage.clear()
+this.route.url.subscribe(url=>
+  console.log(url)
+)
   this.router.events
       .subscribe(
         (event) => {
           if (event instanceof NavigationStart) {
-            console.log(event.url);
+            // console.log(event.url);
             this.url = event.url;
             if(this.url=="/" || this.url==""){
               this.main.subject.next('false')
@@ -56,10 +59,10 @@ ngOnInit(){
   }
   func(form:any){
     if(form.valid){
-      console.log("hai");
+      // console.log("hai");
       
       if(this.signserv.findItem(this.signup.email,this.gdata)){
-        console.log('user with this email exist')
+        // console.log('user with this email exist')
         this.exist=true
         // this.signup={name:'',email:"",password:""}
 
