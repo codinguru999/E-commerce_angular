@@ -9,8 +9,8 @@
 	<ng-template ngbSlide *ngFor="let img of image; index as i" class="z-n1">
 	
 			<div class="picsum-img-wrapper z-n1">
-				<img [src]="img" class="w-50 z-n1" alt="My image {{i + 1}} description" style="height: 15rem;" />
-				<img [src]="images[i]" class="w-50 z-n1" alt="My image {{i + 1}} description" style="height: 15rem;" />
+				<img [src]="img" class="w-50 z-n1 image" alt="My image {{i + 1}} description" />
+				<img [src]="images[i]" class="w-50 z-n1 image" alt="My image {{i + 1}} description" />
 				<!-- <img [src]="img" class="w-50" alt="My image {{i + 1}} description" style="height: 15rem;" /> -->
 			</div>
 		

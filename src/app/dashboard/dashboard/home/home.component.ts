@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardServiceService } from '../dashboard-service.service';
+import { DashboardServiceService } from '../services/dashboard/dashboard-service.service';
 // import { NgbdCarouselPause } from '../dashboard/carosal';
 // import { ModalServiceService } from '../dashboard/modal/modal-service.service';
 import { ModalComponent } from '../modal/modal.component';
@@ -17,13 +17,14 @@ export class HomeComponent{
   product: any
   items: any
   products: any[] = []
-  numbers = [1, 2, 3, 4, 5]
   image: any
   constructor(private serv: HomeserviceService, private modalService: NgbModal, private dashboard: DashboardServiceService) {
 
   }
   @ViewChild('content')
-  content!: ModalComponent;
+  content!: ElementRef;
+  @ViewChild('imageshow')
+  imag!: ElementRef;
 
 
   ngOnInit() {
@@ -63,10 +64,10 @@ export class HomeComponent{
 
   }
 
-  openVerticallyCentered(content: any, item: any) {
+  openVerticallyCentered( item: any) {
 
     this.items = item
-    this.modalService.open(content, { centered: true, size: 'md' })
+    this.modalService.open(this.content, { centered: true, size: 'md' })
 
 
   }
@@ -79,8 +80,8 @@ export class HomeComponent{
     setTimeout(() => { this.modalService.dismissAll() }, 1000)
 
   }
-  openimage(imag: any, image: any) {
+  openimage( image: any) {
     this.image = image
-    this.modalService.open(imag, { size: 'sm', centered: true })
+    this.modalService.open(this.imag, { size: 'sm', centered: true })
   }
 }

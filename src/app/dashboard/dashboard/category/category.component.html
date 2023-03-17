@@ -7,28 +7,9 @@
             <hr>
             <div class="d-flex flex-row" >
                 <div class="row">
-                    <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]" style="height: 25rem;">
-                        <div class="container-fluid w-100 h-100 d-flex rounded flex-column bg-dark p-1 mx-1">
-                            <img [src]="prod.image" alt="" class="w-100 h-75 rounded"(click)=openimage(imageshow,prod.image)>
-                            <div class="container-fluid mx-0 px-0 d-flex flex-column h-25">
-                                <div class="container-fluid d-flex h-50 flex-row justify-content-space-between  p-1 " style="background-color: rgb(55, 16, 112);">
-                                    <span class="text-light p-1">
-                                        {{prod.title | slice: 0:15 }}
-                                    </span>
-                                    <span class="d-flex flex-row ms-auto">
-                                        <i class="material-icons text-white"
-                                        *ngFor="let number of numbers |slice: 0:prod.rating.rate">star</i>
-                                    </span>
-                                </div>
-                                <div class="container-fluid d-flex h-50 flex-row  justify-content-space-between p-1" style="background-color: rgb(55, 16, 112);">
-                                    <span class="text-light ps-1 py-2">{{prod.price | currency}}</span>
-                                    <button class="btn btn-primary rounded ms-auto" (click)="openVerticallyCentered(content,prod)">
-                                        View More
-                                    </button>
-                                </div>
-                            </div>
-                            
-                        </div>
+                    <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]">
+                        <app-product [product]="prod" (modalopen)="openVerticallyCentered($event)" (imageopen)="openimage($event)"></app-product>
+
                     </div>
                 </div>
             </div>
@@ -37,8 +18,7 @@
     </div>
 </div>
 <ng-template #content let-modal>
-
-    <app-modal [items]="items" [numbers]="numbers" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
+    <app-modal [items]="items" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
 </ng-template>
 <ng-template #popover let-modal >
     <div class="modal-header ">

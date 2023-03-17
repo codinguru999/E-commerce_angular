@@ -2,8 +2,6 @@ import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleCh
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
-// import { MainserviceService } from 'src/app/mainservice.service';
-// import { ModalServiceService } from './modal-service.service';
 
 @Component({
   selector: 'app-modal',
@@ -12,26 +10,15 @@ import { MainserviceService } from 'src/app/services/main/mainservice.service';
 })
 export class ModalComponent {
   @Input() items: any
-  @Input() numbers: any
   // @Input() popover:any
   @Output() closes = new EventEmitter<any>();
   @Output() popove = new EventEmitter<any>();
   user: any
+  numbers=[1,2,3,4,5]
   length=80
   view=true
-  // modal:NgbActiveModal
   constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService, private router: Router) { }
-  // @ViewChild('content') mymodal: ElementRef | undefined;
-  // ngOnChanges(changes: SimpleChanges) {
-  //   // console.log(changes)
-  //   if (changes['items'].firstChange == false) {
-
-  //     this.modalService.open(this.mymodal, { centered: true, size: 'md' });
-
-
-  //   }
-
-  // }
+  
   ngOnInit() {
     this.main.getuser().subscribe((data) => {
 

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DashboardServiceService } from '../dashboard-service.service';
+import { DashboardServiceService } from '../services/dashboard/dashboard-service.service';
 import { DashboardComponent } from '../dashboard.component';
 import { ModalComponent } from '../modal/modal.component';
 import { CategoryServiceService } from '../services/category/category-service.service';
@@ -17,9 +17,12 @@ export class CategoryComponent {
   product: any
   prod:any=[]
   items: any
-  numbers = [1, 2, 3, 4, 5]
   image: any;
   // modalService: any;
+  @ViewChild('content')
+  content!: ElementRef;
+  @ViewChild('imageshow')
+  imag!: ElementRef;
   constructor(private service: CategoryServiceService,private modalService:NgbModal,private dashboard: DashboardComponent,private dashbrd: DashboardServiceService) {
     // console.log("Category page Called")
 
@@ -48,10 +51,10 @@ export class CategoryComponent {
         this.products[category] = this.product.slice(0, 4)
     }
   }
-  openVerticallyCentered(content:any,item: any) {
+  openVerticallyCentered(item: any) {
     // console.log(item)
     this.items = item
-   let modalref= this.modalService.open(content,{centered:true,size:'md'});
+   let modalref= this.modalService.open(this.content,{centered:true,size:'md'});
   }
   closeModal(content : any){
     this.modalService.dismissAll(content)
@@ -62,8 +65,8 @@ export class CategoryComponent {
    setTimeout(()=>{this.modalService.dismissAll()},1000) 
 
   }
-  openimage(imag:any,image:any){
+  openimage(image:any){
     this.image=image
-        this.modalService.open(imag,{size:'sm',centered:true})
+        this.modalService.open(this.imag,{size:'sm',centered:true})
       }
 }

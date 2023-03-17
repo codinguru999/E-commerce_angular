@@ -7,6 +7,10 @@ import { FormsModule } from '@angular/forms';
 	selector: 'ngbd-carousel-pause',
 	standalone: true,
 	imports: [NgbCarouselModule, NgFor, FormsModule],
+	styles:[`
+		.image{
+			height:20vw;
+		}`],
 	templateUrl: './carousal.html',
 })
 export class NgbdCarouselPause {

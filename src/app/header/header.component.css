@@ -1,5 +1,11 @@
 .active-link{
     font-weight: bold;
 }
-
-
+.navbars{
+    background-color: #23074d;
+}
+.hoverel{
+    width: fit-content; 
+    z-index: 1;
+     background-color: #23074d;
+}

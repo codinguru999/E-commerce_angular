@@ -77,10 +77,10 @@ export class HeaderComponent {
   }
   getclass(){
     if(this.changeclass==true){
-      return 'container  d-none  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
+      return 'container hoverel d-none  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
     }
     else{
-      return 'container  d-flex  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
+      return 'container hoverel d-flex  flex-column position-absolute top-100 end-0 me-3 px-3 py-2 rounded'
     }
   }
   hidetoggle(){

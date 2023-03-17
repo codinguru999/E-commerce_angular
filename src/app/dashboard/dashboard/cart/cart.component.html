@@ -12,7 +12,7 @@
                 <span class=" py-auto my-auto text-light me-1 fw-bold">{{sum | currency}} </span>
                 <button class="btn btn-warning text-nowrap" (click)="multiplebuy()">Order Now</button>
             </div>
-            <div  class="container px-0  my-2 p-2 d-flex flex-row rounded" style="height: 20rem;background: linear-gradient(to right, #b92b27, #1565c0);" *ngFor="let key of carts">
+            <div  class="container px-0  my-2 p-2 d-flex flex-row rounded cartProducts"  *ngFor="let key of carts">
                 <div class="container w-25 h-100" id="imagecon">
                     <img class="ms-2 my-auto  w-100 h-75" [src]="key.image" alt="">
                     <h5 class="my-3 text-light text-nowrap ps-3">Qty. <button class="btn px-2 py-0 btn-light" (click)="minuscount(key.id)">-</button> {{key.count}} <button class="btn px-2 py-0 btn-light" (click)="addcount(key.id)">+</button>
