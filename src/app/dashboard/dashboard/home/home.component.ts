@@ -4,7 +4,7 @@ import { DashboardServiceService } from '../dashboard-service.service';
 // import { NgbdCarouselPause } from '../dashboard/carosal';
 // import { ModalServiceService } from '../dashboard/modal/modal-service.service';
 import { ModalComponent } from '../modal/modal.component';
-import { HomeserviceService } from './homeservice.service';
+import { HomeserviceService } from '../services/home/homeservice.service';
 // import { ActivatedRoute } from '@angular/router';
 
 @Component({

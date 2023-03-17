@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardServiceService } from '../dashboard-service.service';
 import { DashboardComponent } from '../dashboard.component';
 import { ModalComponent } from '../modal/modal.component';
-import { CategoryServiceService } from './category-service.service';
+import { CategoryServiceService } from '../services/category/category-service.service';
 // import { NgbdPopoverTarget}
 
 @Component({

@@ -7,8 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
-import { HomeserviceService } from '../home/homeservice.service';
-import { OrderServiceService } from '../order-service.service';
+import { HomeserviceService } from '../services/home/homeservice.service';
+import { OrderServiceService } from '../services/order/order-service.service';
 
 // import Stepper from 'bs-stepper'
 

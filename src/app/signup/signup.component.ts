@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SignupServiceService } from './signup-service.service';
 import { ActivatedRoute, NavigationStart, Route, Router } from '@angular/router';
 import { MainserviceService } from '../services/main/mainservice.service';
+import { SignupServiceService } from '../services/signup/signup-service.service';
 
 @Component({
   selector: 'app-signup',

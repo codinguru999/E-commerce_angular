@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
-import { OrderServiceService } from '../order-service.service';
+import { OrderServiceService } from '../services/order/order-service.service';
 
 @Component({
   selector: 'app-cart',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { user } from '../users';
+import { user } from 'src/app/users';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,7 @@ export class SignupServiceService {
   }
   setItem(name: string, email: string, password: string) {
     //  let users= localStorage.getItem('users')
+    
     //  let user={}
     let user = {
       "address": {

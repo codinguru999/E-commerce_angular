@@ -12,7 +12,7 @@ import { ModalComponent } from './modal/modal.component';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './buy/buy.component';
 import { FormsModule } from '@angular/forms';
-import { NgbdCarouselPause } from './carosal';
+import { NgbdCarouselPause } from './carousal/carosal';
 import { NorouteComponent } from './noroute/noroute.component';
 
 // import {}
