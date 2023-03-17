@@ -1,7 +1,8 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { MainserviceService } from 'src/app/mainservice.service';
+import { MainserviceService } from 'src/app/services/main/mainservice.service';
+// import { MainserviceService } from 'src/app/mainservice.service';
 // import { ModalServiceService } from './modal-service.service';
 
 @Component({

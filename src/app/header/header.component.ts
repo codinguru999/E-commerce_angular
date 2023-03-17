@@ -1,6 +1,6 @@
 import { AfterContentInit, AfterViewInit, Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { MainserviceService } from 'src/app/mainservice.service';
+import { MainserviceService } from '../services/main/mainservice.service';
 
 @Component({
   selector: 'app-header',
@@ -20,11 +20,8 @@ export class HeaderComponent {
   email:any
   changeclass=true
   constructor(private main: MainserviceService, private router: Router) {
-    // console.log("Header construct")
-    // console.log("header")
     this.main.subject.subscribe({
       next: (v: any) => {
-        // console.log({ v })
         if (v == null || v == 'false') {
           this.islogin = false
           localStorage.clear()

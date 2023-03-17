@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
-import { MainserviceService } from '../mainservice.service';
+import { MainserviceService } from '../services/main/mainservice.service';
 
 @Component({
   selector: 'app-no-route',
@@ -8,9 +7,9 @@ import { MainserviceService } from '../mainservice.service';
   styleUrls: ['./no-route.component.css']
 })
 export class NoRouteComponent {
-  url:any
-constructor(private main:MainserviceService){
-  console.log('No component works')
-  this.main.subject.next('false')
-}
+  url: any
+  constructor(private main: MainserviceService) {
+    console.log('No component works')
+    this.main.subject.next('false')
+  }
 }

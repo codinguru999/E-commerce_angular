@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // import { LoginguardGuard } from 'src/app/loginguard.guard';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BuyComponent } from './buy/buy.component';
-import { BuygGuard } from './buyg.guard';
+import { BuygGuard } from './guards/buy/buyg.guard';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { DashboardComponent } from './dashboard.component';
+import { NorouteComponent } from './noroute/noroute.component';
 
 const routes: Routes = [
   {
@@ -21,10 +22,11 @@ const routes: Routes = [
       { path: 'category', component: CategoryComponent },
       // {path:'dashboard/home/:name',component:HomeComponent},
       { path: '', redirectTo: '/dashboard/home', pathMatch: 'full' },
-      {path:"**" ,redirectTo: '/dashboard/home', pathMatch: 'full' }
-
+      {path:"**" ,component:NorouteComponent }
+      
     ]
   },
+  {path:"**" ,component:NorouteComponent}
   // {path:"",redirectTo:"/dashboard",pathMatch:"full"}
 ];
 

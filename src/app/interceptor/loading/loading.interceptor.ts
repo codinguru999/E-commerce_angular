@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
-import { LoaderService } from './loader.service';
+import { LoaderService } from '../../services/loader/loader.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
@@ -26,7 +26,9 @@ export class LoadingInterceptor implements HttpInterceptor {
       finalize(() => {
         this.totalRequests--;
         if (this.totalRequests == 0) {
+         setTimeout(() => {
           this.loadingService.setLoading(false);
+         }, 200); 
         }
       })
     );

@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 // import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
-import { HomeComponent } from '../home/home.component';
+import { FooterComponent } from '../../footer/footer.component';
+import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
@@ -13,13 +13,14 @@ import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './buy/buy.component';
 import { FormsModule } from '@angular/forms';
 import { NgbdCarouselPause } from './carosal';
+import { NorouteComponent } from './noroute/noroute.component';
 
 // import {}
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent, ModalComponent
+    DashboardComponent,FooterComponent,HomeComponent, AboutComponent, CartComponent, CategoryComponent, ModalComponent, NorouteComponent
   ],
   imports: [
     CommonModule,

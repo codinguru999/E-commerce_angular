@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
-import { MainserviceService } from 'src/app/mainservice.service';
+import { MainserviceService } from 'src/app/services/main/mainservice.service';
+import { HomeserviceService } from '../home/homeservice.service';
 import { OrderServiceService } from '../order-service.service';
 
 // import Stepper from 'bs-stepper'
@@ -20,7 +21,7 @@ import { OrderServiceService } from '../order-service.service';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent {
-  constructor(private route: ActivatedRoute, private main: MainserviceService, private http: HttpClient, private router: Router, private orderserv: OrderServiceService, private moadlservice: NgbModal) {
+  constructor(private route: ActivatedRoute, private home: HomeserviceService, private main: MainserviceService, private http: HttpClient, private router: Router, private orderserv: OrderServiceService, private moadlservice: NgbModal) {
 
   }
   multipleBuy = false
@@ -44,21 +45,27 @@ export class BuyComponent {
   @ViewChild('btn2')
   btn2!: ElementRef;
   ngOnInit() {
-    if (this.route.snapshot.paramMap.has('id')) {
-      // this.multipleBuy = false
-      this.orderserv.multipleBuy = false
-      this.id = this.route.snapshot.paramMap.get('id')
-      this.http.get('http://localhost:3000/products?id=' + this.id).subscribe((data) => {
-        this.products = data
-        this.products = this.products[0]
-      })
-    }
-    else {
-      this.productList = this.orderserv.cart
-      for (let x of this.productList) {
-        this.sum += x.price * x.count
+    this.route.paramMap.subscribe((data) => {
+      if (data.has('id')) {
+        this.id = data.get('id')
+        this.orderserv.multipleBuy = false
+        if (this.id <= this.home.length) {
+          this.http.get('http://localhost:3000/products?id=' + this.id).subscribe((data) => {
+            this.products = data
+            this.products = this.products[0]
+          })
+        }
+        else {
+          this.router.navigateByUrl('/dashboard/no')
+        }
       }
-    }
+      else {
+        this.productList = this.orderserv.cart
+        for (let x of this.productList) {
+          this.sum += x.price * x.count
+        }
+      }
+    })
     this.main.getuser().subscribe((data) => {
       this.useres = data
       this.users.name = this.useres[0].name['firstname'] + ' ' + this.useres[0].name['lastname']
@@ -76,7 +83,7 @@ export class BuyComponent {
     this.multipleBuy = this.orderserv.multipleBuy
   }
   submitUser(form: any) {
-    this.btn1.nativeElement.innerHTML='&#x2713;'
+    this.btn1.nativeElement.innerHTML = '&#x2713;'
     this.btn1.nativeElement.classList.remove('btn-primary')
     this.btn1.nativeElement.classList.add('btn-success')
 
@@ -86,7 +93,7 @@ export class BuyComponent {
 
   }
   userAddress(form: any) {
-    this.btn2.nativeElement.innerHTML='&#x2713;'
+    this.btn2.nativeElement.innerHTML = '&#x2713;'
     this.btn2.nativeElement.classList.remove('btn-primary')
     this.btn2.nativeElement.classList.add('btn-success')
     this.switchel = 3

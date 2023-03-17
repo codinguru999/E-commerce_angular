@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MainserviceService } from 'src/app/mainservice.service';
+import { MainserviceService } from 'src/app/services/main/mainservice.service';
 
 @Component({
   selector: 'app-about',

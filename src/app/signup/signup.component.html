@@ -26,7 +26,7 @@
 
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <div  class="my-1 text-center">Already have an Account? <a [routerLink]="'login'" class="text-light">Login</a> </div>
+    <div  class="my-1 text-center">Already have an Account? <a [routerLink]="['/login']" class="text-light">Login</a> </div>
 </form>
 <ul>
     <li *ngFor="let data of gdata">{{data.id}}</li>

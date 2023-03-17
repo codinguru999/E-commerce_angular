@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
-import { MainserviceService } from './mainservice.service';
+import { MainserviceService } from './services/main/mainservice.service';
 
 @Component({
   selector: 'app-root',
@@ -12,27 +12,6 @@ export class AppComponent {
   islogin = true
   url: any;
   constructor(private router: Router ,private main: MainserviceService) {
-    // console.log(router.url);
-    // router.events.pipe
-    // router.events.filter(event => event instanceof NavigationEnd)
-    //       .subscribe(event => 
-    //        {
-    //           this.currentRoute = event.url;          
-    //           console.log(event);
-    //        });
-    // this.router.events
-    //   .subscribe(
-    //     (event) => {
-    //       if (event instanceof NavigationStart) {
-    //         console.log(event.url);
-    //         this.url = event.url;
-    //         if(this.url=="/" || this.url==""){
-    //           main.subject.next('false')
-              
-    //         }
-    //     }
-
-    //     });
   }
   ngOnInit() {
 

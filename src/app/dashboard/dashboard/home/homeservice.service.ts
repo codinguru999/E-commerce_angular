@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HomeserviceService {
+  length:any
 url="http://localhost:3000/products"
   constructor(private http:HttpClient) { }
   ngOnInit(){
