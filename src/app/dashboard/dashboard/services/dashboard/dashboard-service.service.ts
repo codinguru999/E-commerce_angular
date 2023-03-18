@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardServiceService {
-url="http://localhost:3000/users"
-products:any
+  url=environment.apiURL+'/users'
+  products:any
 categories:any
 subject=new ReplaySubject()
 subject1=new ReplaySubject()

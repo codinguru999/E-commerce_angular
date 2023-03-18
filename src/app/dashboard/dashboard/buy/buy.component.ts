@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
+import { environment } from 'src/environment/environment';
 import { HomeserviceService } from '../services/home/homeservice.service';
 import { OrderServiceService } from '../services/order/order-service.service';
 
@@ -24,6 +25,7 @@ export class BuyComponent {
   constructor(private route: ActivatedRoute, private home: HomeserviceService, private main: MainserviceService, private http: HttpClient, private router: Router, private orderserv: OrderServiceService, private moadlservice: NgbModal) {
 
   }
+  url=environment.apiURL
   multipleBuy = false
   switchel = 1
   secondDisabled = true
@@ -50,7 +52,7 @@ export class BuyComponent {
         this.id = data.get('id')
         this.orderserv.multipleBuy = false
         if (this.id <= this.home.length) {
-          this.http.get('http://localhost:3000/products?id=' + this.id).subscribe((data) => {
+          this.http.get(this.url+'/products?id=' + this.id).subscribe((data) => {
             this.products = data
             this.products = this.products[0]
           })

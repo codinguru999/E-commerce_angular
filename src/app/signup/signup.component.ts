@@ -49,7 +49,6 @@ export class SignupComponent {
         // console.log('user with this email exist')
         this.exist = true
         // this.signup={name:'',email:"",password:""}
-
       }
       else {
         // alert("Your Account has been created with: \nEmail: "+this.signup.email +"\nPassword: "+this.signup.password+"\n Now you can login")

@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeserviceService {
   length:any
-url="http://localhost:3000/products"
-  constructor(private http:HttpClient) { }
+  url=environment.apiURL+'/products'
+    constructor(private http:HttpClient) { }
   ngOnInit(){
   }
   getProducts(){

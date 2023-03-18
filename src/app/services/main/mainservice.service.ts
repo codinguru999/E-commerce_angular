@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { count, Subject } from 'rxjs';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class MainserviceService {
   locaData:string|undefined|any
   constructor(private http: HttpClient) { }
   subject = new Subject()
-  url='http://localhost:3000'
+  url=environment.apiURL
   setSubject() {
     this.subject.next('true')
   }

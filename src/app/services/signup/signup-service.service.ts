@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { user } from 'src/app/users';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupServiceService {
-  url = "http://localhost:3000/users"
+  url=environment.apiURL
   // getdata={}
   data: any
   httpOptions = {
@@ -18,7 +19,8 @@ export class SignupServiceService {
 
   }
   getItem(key: any) {
-    return this.http.get<user>(this.url + "?email=" + key);
+    console.log(this.url);
+    return this.http.get(this.url + "/users?email=" + key);
   }
   findItem(key: any, getdata: any) {
     console.log(getdata[0])
@@ -31,36 +33,47 @@ export class SignupServiceService {
     }
   }
   setItem(name: string, email: string, password: string) {
-    //  let users= localStorage.getItem('users')
-    
-    //  let user={}
-    let user = {
-      "address": {
-        "geolocation": {
-          "lat": "-37.3159",
-          "long": "81.1496"
+    let user:user ={
+      address: {
+        geolocation: {
+          lat: 0,
+          long: 0
         },
-        "city": "kilcoole",
-        "street": "new road",
-        "number": 7682,
-        "zipcode": "12926-3874"
+        city: '',
+        street: '',
+        number: 0,
+        zipcode: undefined
       },
-      "cart":[],
-      "orders":[],
-      "email": email,
-      "username": name,
-      "password": password,
-      "name": {
-        "firstname": "john",
-        "lastname": "doe"
+      id: 0,
+      email: '',
+      username: '',
+      password: '',
+      name: {
+        firstname: '',
+        lastname: ''
       },
-      "phone": "1-570-236-7033",
-      "__v": 0
-    }
-    this.http.post(this.url, user,this.httpOptions).subscribe(data => {
+      phone: undefined,
+      __v: 0,
+      cart: undefined,
+      orders: undefined
+    } 
+    user.address.geolocation.lat=-37.3159
+    user.address.geolocation.long=81.1496
+    user.address.city="kilocoole"
+    user.address.street="new road"
+    user.__v=0
+    user.address.number=7682
+    user.address.zipcode=12926-3874
+    user.cart=[]
+    user.orders=[]
+    user.email=email
+    user.username=name
+    user.password=password
+    user.name.firstname=name
+    user.name.lastname="doe"
+    user.phone=1-570-236-7033
+    this.http.post(this.url+'/users', user,this.httpOptions).subscribe(data => {
       this.data = data
-      // console.log(data)
     })
-    //  localStorage.setItem(email,JSON.stringify(user))
   }
 }

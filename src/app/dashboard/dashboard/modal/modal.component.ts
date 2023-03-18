@@ -10,7 +10,6 @@ import { MainserviceService } from 'src/app/services/main/mainservice.service';
 })
 export class ModalComponent {
   @Input() items: any
-  // @Input() popover:any
   @Output() closes = new EventEmitter<any>();
   @Output() popove = new EventEmitter<any>();
   user: any
@@ -21,9 +20,7 @@ export class ModalComponent {
   
   ngOnInit() {
     this.main.getuser().subscribe((data) => {
-
       this.user = data
-      // console.log(this.user[0])
     })
   }
   updateProduct(item: any) {
@@ -47,9 +44,6 @@ export class ModalComponent {
   }
   showmore(des:string){
     this.view=false
-    // console.log(des.length);
-    
-    
     this.length=des.length
   }
   showless(des:string){
