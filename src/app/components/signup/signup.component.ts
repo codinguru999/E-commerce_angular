@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, NavigationStart, Route, Router } from '@angular/router';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import {  Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from '../../services/main/mainservice.service';
 import { SignupServiceService } from '../../services/signup/signup-service.service';
 
@@ -15,7 +16,9 @@ export class SignupComponent {
   url: any
   urls: any
   signups = false
-  constructor(private signserv: SignupServiceService, private router: Router, private main: MainserviceService, private route: ActivatedRoute) {
+  @ViewChild('popover')
+  modal!: ElementRef;
+  constructor(private signserv: SignupServiceService, private router: Router, private main: MainserviceService,private modalserv:NgbModal) {
 
   }
   ngOnInit() {
@@ -35,29 +38,26 @@ export class SignupComponent {
     }
     this.signserv.getItem(this.signup.email).subscribe((data) => {
       this.gdata = data
-      // console.log(data)
-      // console.log(this.gdata)
       this.func(form)
     })
 
   }
   func(form: any) {
     if (form.valid) {
-      // console.log("hai");
-
       if (this.signserv.findItem(this.signup.email, this.gdata)) {
-        // console.log('user with this email exist')
         this.exist = true
-        // this.signup={name:'',email:"",password:""}
       }
       else {
-        // alert("Your Account has been created with: \nEmail: "+this.signup.email +"\nPassword: "+this.signup.password+"\n Now you can login")
         this.signserv.setItem(this.signup.name, this.signup.email, this.signup.password)
-        // this.location.back()
+        this.userCreationmsg()
         this.router.navigate(['/login'])
-
       }
     }
-
+  }
+  userCreationmsg(){
+    this.modalserv.open(this.modal,{size:'sm'})
+    setTimeout(() => {
+      this.modalserv.dismissAll()
+    }, 1000);
   }
 }

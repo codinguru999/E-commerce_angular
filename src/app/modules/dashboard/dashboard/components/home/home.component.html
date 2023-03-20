@@ -1,10 +1,10 @@
 <ngbd-carousel-pause></ngbd-carousel-pause>
-<!-- <h1>Home works</h1> -->
 <div class="container-fluid mt-0 pt-3">
     <div class="container-sm">
         <div class="row m-3" *ngFor="let product of products">
             <div class="col w-100 my-2 mx-1" *ngFor="let item of product">
-                <app-product [product]="item" (modalopen)="openVerticallyCentered($event)" (imageopen)="openimage($event)"></app-product>
+                <app-product [product]="item" (modalopen)="openVerticallyCentered($event)"
+                    (imageopen)="openimage($event)"></app-product>
             </div>
         </div>
     </div>
@@ -13,7 +13,7 @@
 
     <app-modal [items]="items" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
 </ng-template>
-<ng-template #popover let-modal >
+<ng-template #popover let-modal>
     <div class="modal-header ">
         <span>Item Added to cart</span>
     </div>

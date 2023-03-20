@@ -5,22 +5,23 @@
         <div class="row m-3" *ngFor="let category of categories">
             <h1 class="text-light">{{category | titlecase}}</h1>
             <hr>
-            <div class="d-flex flex-row" >
+            <div class="d-flex flex-row">
                 <div class="row">
                     <div class="col w-100 my-2 mx-1" *ngFor="let prod of products[category]">
-                        <app-product [product]="prod" (modalopen)="openVerticallyCentered($event)" (imageopen)="openimage($event)"></app-product>
+                        <app-product [product]="prod" (modalopen)="openVerticallyCentered($event)"
+                            (imageopen)="openimage($event)"></app-product>
 
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 <ng-template #content let-modal>
     <app-modal [items]="items" (closes)="closeModal(content)" (popove)="openmodal(popover)"></app-modal>
 </ng-template>
-<ng-template #popover let-modal >
+<ng-template #popover let-modal>
     <div class="modal-header ">
         <span>Item Added to cart</span>
     </div>

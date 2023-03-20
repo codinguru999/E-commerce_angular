@@ -17,7 +17,6 @@ export class LoginComponent {
   wrnpass = true
   name:any
   logins=false
-  // isLoginValid=false
   constructor(private logserv: LoginServiceService, private router: Router,private main:MainserviceService) { }
 
   setClass(value: any) {
@@ -32,9 +31,7 @@ export class LoginComponent {
     if (form.valid) {
       this.logserv.getItem(this.login.email).subscribe((data) => {
         this.parsedData = data
-        // console.log(this.parsedData)
         this.verify()
-
       })
     }
     else{
@@ -42,22 +39,17 @@ export class LoginComponent {
     }
   }
   verify() {
-    // console.log(this.parsedData)
     if (this.logserv.findItem(this.parsedData)) {
       this.userexist = false
-      // console.log("User does not exist")
     }
     else {
       if (this.parsedData[0].password === this.login.password) {
-        // console.log(this.parsedData[0].password)
-        // this.isLoginValid=true
         this.logserv.loginValid=true
         let email=this.login.email
         this.router.navigateByUrl('/dashboard/home')
         localStorage.setItem('useremail',JSON.stringify(email))
         localStorage.setItem('islogin',JSON.stringify(true))
         this.main.setSubject()
-        
       }
       else {
         this.wrnpass = false

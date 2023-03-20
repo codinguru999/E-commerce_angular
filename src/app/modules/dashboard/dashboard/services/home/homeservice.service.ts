@@ -6,12 +6,12 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root'
 })
 export class HomeserviceService {
-  length:any
-  url=environment.apiURL+'/products'
-    constructor(private http:HttpClient) { }
-  ngOnInit(){
+  length: any
+  url = environment.apiURL + '/products'
+  constructor(private http: HttpClient) { }
+  ngOnInit() {
   }
-  getProducts(){
+  getProducts() {
     return this.http.get(this.url)
   }
 }

@@ -6,18 +6,16 @@ import { environment } from 'src/environment/environment';
   providedIn: 'root'
 })
 export class CategoryServiceService {
-  url=environment.apiURL+'/products'
-  url2=environment.apiURL+'/categories'
-  // url="http://localhost:3000/products"
-  // url2="http://localhost:3000/categories"
-  products:any[]=[]
-  product:any[]=[]
-  constructor(private http:HttpClient) { }
+  url = environment.apiURL + '/products'
+  url2 = environment.apiURL + '/categories'
+  products: any[] = []
+  product: any[] = []
+  constructor(private http: HttpClient) { }
 
-  getCategories(){
+  getCategories() {
     return this.http.get(this.url2)
   }
-  getProducts(category:any){
-    return this.http.get(this.url+"?category="+category)
+  getProducts(category: any) {
+    return this.http.get(this.url + "?category=" + category)
   }
 }

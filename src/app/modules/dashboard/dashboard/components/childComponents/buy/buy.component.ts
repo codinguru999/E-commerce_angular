@@ -1,18 +1,13 @@
 import { NgSwitch, NgSwitchCase, NgFor, SlicePipe, CurrencyPipe, DatePipe, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-// import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
 import { environment } from 'src/environment/environment';
 import { HomeserviceService } from '../../../services/home/homeservice.service';
 import { OrderServiceService } from '../../../services/order/order-service.service';
-
-// import Stepper from 'bs-stepper'
-
 
 @Component({
   selector: 'app-buy',
@@ -73,18 +68,13 @@ export class BuyComponent {
       this.users.name = this.useres[0].name['firstname'] + ' ' + this.useres[0].name['lastname']
       this.users.email = this.useres[0].email
       this.users.phone = this.useres[0].phone
-      // console.log(this.users)
       this.addres.city = this.useres[0].address['city']
       this.addres.street = this.useres[0].address['street'] + ' ' + this.useres[0].address['number']
       this.addres.zipCode = this.useres[0].address['zipcode']
-      // console.log(this.useres[0].cart);
-
     })
-
-    //  this.dates= this.date.setDate(this.date.getDate()+3)
     this.multipleBuy = this.orderserv.multipleBuy
   }
-  submitUser(form: any) {
+  submitUser() {
     this.btn1.nativeElement.innerHTML = '&#x2713;'
     this.btn1.nativeElement.classList.remove('btn-primary')
     this.btn1.nativeElement.classList.add('btn-success')
@@ -94,7 +84,7 @@ export class BuyComponent {
     this.firstLine = 100
 
   }
-  userAddress(form: any) {
+  userAddress() {
     this.btn2.nativeElement.innerHTML = '&#x2713;'
     this.btn2.nativeElement.classList.remove('btn-primary')
     this.btn2.nativeElement.classList.add('btn-success')
@@ -118,8 +108,7 @@ export class BuyComponent {
       }
     }
 
-    this.main.updateOrdersUser(this.useres[0], id).subscribe((data) => {
-      // console.log(data)
+    this.main.updateOrdersUser(this.useres[0], id).subscribe(() => {
       this.moadlservice.open(popover, { size: 'sm' })
       setTimeout(() => {
         this.moadlservice.dismissAll()

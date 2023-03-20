@@ -6,17 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BuygGuard implements CanActivate {
-  buyg=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('buy'))))
-  constructor(private route:Router){}
+  buyg = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('buy'))))
+  constructor(private route: Router) { }
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.buyg==true){
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.buyg == true) {
       return true
     }
-    else{
+    else {
       return this.route.navigateByUrl('/dashboard/home');
     }
   }
-  
+
 }

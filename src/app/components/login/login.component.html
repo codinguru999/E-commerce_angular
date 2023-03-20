@@ -1,18 +1,19 @@
 <h3 class="m-auto text-center text-info my-3">Log In</h3>
-<form class="container-md text-light mx-auto w-50 border border-info p-4 rounded" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+<form class="container-md text-light mx-auto w-50 border border-info p-4 rounded" #loginForm="ngForm"
+    (ngSubmit)="submitForm(loginForm)">
     <div class="mx-auto text-center" *ngIf="!userexist">User not exist <a [routerLink]="''">SignUp</a></div>
     <div class="mb-3 form-group">
         <label for="email" class="form-label">Email</label>
         <input name="email" type="email" email required [(ngModel)]="login.email" #email="ngModel" autocomplete="off"
             [class]="setClass(email)" id="InputEmail1" (input)="userexist=true">
-        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
         <span *ngIf="email.invalid && email.touched || logins && email.invalid">Enter Your Email Please</span>
     </div>
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input name="password" type="password" password required [(ngModel)]="login.password" #password="ngModel"
-        [class]="setClass(password)" id="InputPassword1" (input)="wrnpass=true">
-        <span *ngIf="password.invalid && password.touched || logins && password.invalid">Enter Your Password Please</span>
+            [class]="setClass(password)" id="InputPassword1" (input)="wrnpass=true">
+        <span *ngIf="password.invalid && password.touched || logins && password.invalid">Enter Your Password
+            Please</span>
         <span *ngIf="!wrnpass">Wrong Password</span>
 
     </div>

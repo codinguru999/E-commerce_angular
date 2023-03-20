@@ -1,13 +1,15 @@
-.cartProducts{
+.cartProducts {
     height: 20rem;
     background: linear-gradient(to right, #b92b27, #1565c0);
 }
+
 @media screen and (max-width: 600px) {
-    #imagecon{
+    #imagecon {
         width: 50% !important;
     }
-    #titlecon{
+
+    #titlecon {
         width: 50% !important;
     }
-    
+
 }

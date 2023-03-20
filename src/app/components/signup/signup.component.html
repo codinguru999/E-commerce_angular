@@ -6,28 +6,32 @@
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input name="name" type="text" autocomplete="off" required [(ngModel)]="signup.name" #name="ngModel"
-        [class]="setClass(name)"  aria-describedby="emailHelp">
-     <span *ngIf="name.invalid && name.touched || signups && name.invalid">Please Enter Your Username</span>
-        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            [class]="setClass(name)" aria-describedby="emailHelp" (input)="exist=false">
+        <span *ngIf="name.invalid && name.touched || signups && name.invalid">Please Enter Your Username</span>
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input name="email" type="email" autocomplete="off" email required [(ngModel)]="signup.email" #email="ngModel"
-        [class]="setClass(email)" aria-describedby="emailHelp">
+            [class]="setClass(email)" aria-describedby="emailHelp" (input)="exist=false">
         <span *ngIf="email.invalid && email.touched || signups && email.invalid">Please Enter Proper Email</span>
-
-        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input name="password" type="password" minlength="8" required [(ngModel)]="signup.password" #password="ngModel"
-        [class]="setClass(password)" id="InputPassword1">
-        <span *ngIf="password.invalid && password.touched || signups && password.invalid">Password length should be greater than or equal to 8</span>
+            [class]="setClass(password)" id="InputPassword1">
+        <span *ngIf="password.invalid && password.touched || signups && password.invalid">Password length should be
+            greater than or equal to 8</span>
 
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <div  class="my-1 text-center">Already have an Account? <a [routerLink]="['/login']" class="text-light">Login</a> </div>
+    <div class="my-1 text-center">Already have an Account? <a [routerLink]="['/login']" class="text-light">Login</a>
+    </div>
 </form>
 <ul>
     <li *ngFor="let data of gdata">{{data.id}}</li>
 </ul>
+<ng-template #popover let-modal>
+    <div class="modal-header ">
+        <span>User Created!</span>
+    </div>
+</ng-template>

@@ -2,22 +2,27 @@
     background-color: #292b2c;
     color: white;
 }
+
 .dark-modal .close {
     color: white;
 }
+
 .light-blue-backdrop {
     background-color: #5cb3fd;
 }
-.maindiv{
+
+.maindiv {
     height: 18rem;
     background: linear-gradient(to right, #b92b27, #1565c0);
 }
+
 @media screen and (max-width: 600px) {
-    #imagecontainer{
+    #imagecontainer {
         width: 50% !important;
     }
-    #titlecontainer{
+
+    #titlecontainer {
         width: 50% !important;
     }
-    
+
 }

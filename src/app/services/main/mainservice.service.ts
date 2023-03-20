@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
-import { count, Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { environment } from 'src/environment/environment';
 
 @Injectable({
@@ -19,7 +19,6 @@ export class MainserviceService {
   getuser() {
     this.locaData=localStorage.getItem('useremail')
     this.email=JSON.parse(this.locaData)
-    // console.log(this.email)
     return this.http.get(this.url+'/users?email=' + this.email)
   }
   updateOrdersUser(product: any, id: any) {

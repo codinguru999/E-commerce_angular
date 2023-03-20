@@ -7,18 +7,17 @@ import { environment } from 'src/environment/environment';
 })
 export class LoginServiceService {
 
-  url=environment.apiURL
-  loginValid=false
+  url = environment.apiURL
+  loginValid = false
   constructor(private http: HttpClient) { }
-  ngOnItit(){
-    
-  }
-  getItem(key:any){
+  ngOnItit() {
 
-    return this.http.get(this.url+'/users'+"?email="+key)
   }
-  findItem(data:any){
-    if(data[0]===undefined){
+  getItem(key: any) {
+    return this.http.get(this.url + '/users' + "?email=" + key)
+  }
+  findItem(data: any) {
+    if (data[0] === undefined) {
       return true
     }
     return false

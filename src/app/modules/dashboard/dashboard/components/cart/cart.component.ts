@@ -28,7 +28,6 @@ export class CartComponent {
       this.userdetails = data
       this.user = this.userdetails[0]
       this.id = this.userdetails[0].id
-      // console.log(this.id)
       if (this.userdetails[0].cart[0] === undefined) {
         this.blank = false
       }
@@ -60,48 +59,35 @@ export class CartComponent {
 
     }
     for (let x of Object.values(this.obj)) {
-      // console.log(x)
       cart.push(x)
     }
     details.cart = cart
-    // console.log(details.cart)
     this.carts = details.cart
-    this.main.updateOrdersUser(details, id).subscribe((data) => {
+    this.main.updateOrdersUser(details, id).subscribe(() => {
 
     })
 
   }
   buyProduct(item: any) {
-    // this.removeItem(item)
     localStorage.setItem('buy',JSON.stringify(true))
     this.router.navigateByUrl('/dashboard/buy/' + item.id)
   }
   removeItem(item: any) {
     let cart = []
-
     for (let x of this.user.cart) {
-
       if (x.id !== item.id) {
-
-
         cart.push(x)
       }
     }
-
     this.user.cart = cart
-
-
     this.main.updateOrdersUser(this.user, this.id).subscribe((data) => {
-
       this.userdetails = data
-
       if (this.userdetails.cart[0] === undefined) {
         this.blank = false
       }
       else {
         this.blank = true
         this.carts = this.userdetails.cart
-
       }
 
     })
@@ -112,11 +98,8 @@ export class CartComponent {
     this.order.cart = this.carts
     localStorage.setItem('buy',JSON.stringify(true))
     this.router.navigateByUrl('/dashboard/buy')
-
   }
   addcount(id:any){
-    // console.log(id)
-    // console.log(this.carts);
     for(let x of this.carts){
       if(x.id==id){
         x.count+=1
@@ -126,21 +109,17 @@ export class CartComponent {
     this.user.cart=this.carts
   }
   minuscount(id:any){
-    // console.log(id)
     for(let x of this.carts){
       if(x.id==id){
         x.count-=1
         this.sum-=x.price
-        // console.log(this.carts);
       }
     }
     this.user.cart=this.carts
     
   }
   ngOnDestroy(){
-    // console.log('Cart destroyed')
-    this.main.updateOrdersUser(this.user,this.id).subscribe((data)=>{
-      // console.log(data)
+    this.main.updateOrdersUser(this.user,this.id).subscribe(()=>{
     })
   }
 }

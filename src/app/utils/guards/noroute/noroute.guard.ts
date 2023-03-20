@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class NorouteGuard implements CanActivate {
   constructor(private router: Router) { }
   canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (localStorage.getItem('islogin') != undefined || localStorage.getItem('islogin') != null) {
+    _route: ActivatedRouteSnapshot,
+    _state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (!localStorage.getItem('islogin')) {
       return this.router.navigate(['/dashboard/error'])
     }
     else {

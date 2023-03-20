@@ -7,16 +7,16 @@ import { LoginServiceService } from 'src/app/services/login/login-service.servic
   providedIn: 'root'
 })
 export class LoginguardGuard implements CanActivate {
-  constructor(private login:LoginServiceService,private router: Router){}
+  constructor(private login: LoginServiceService, private router: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('islogin')!=undefined || localStorage.getItem('islogin')!=null ){
+    if (localStorage.getItem('islogin')) {
       return this.router.navigate(['/dashboard'])
     }
-    else{
+    else {
       return true
     }
   }
-  
+
 }

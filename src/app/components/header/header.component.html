@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-primary text-white mb-0 px-3 py-1 navbars " >
+<nav class="navbar navbar-expand-lg navbar-primary text-white mb-0 px-3 py-1 navbars ">
   <a class="text-white fw-bold navbar-brand" [routerLink]="'dashboard/home'" *ngIf="islogin; else elseBlock">
     {{title}}
   </a>
@@ -9,7 +9,7 @@
     </a>
   </ng-template>
 
-  <button class="navbar-toggler text-light" *ngIf="islogin"  type="button" (click)="toggleNavbar()">
+  <button class="navbar-toggler text-light" *ngIf="islogin" type="button" (click)="toggleNavbar()">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -17,7 +17,7 @@
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': hamburger }">
     <ul class="navbar-nav mr-auto" *ngIf="islogin" (click)="hidetoggle()">
       <li class="nav-item">
-        <a class="nav-link text-white" [routerLink]="'dashboard/home'"  routerLinkActive="active-link">Home</a>
+        <a class="nav-link text-white" [routerLink]="'dashboard/home'" routerLinkActive="active-link">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" [routerLink]="'dashboard/orders'" routerLinkActive="active-link">Your Orders</a>
@@ -31,8 +31,8 @@
       </li>
     </ul>
     <div class="d-flex ms-auto  me-2" *ngIf="islogin" (mouseover)="changeclass=false" (mouseout)="changeclass=true">
-      <li role="button" class="d-flex ms-auto me-2 fw-bold nav-item p-2" >{{uname |uppercase}}</li>
-      <div [ngClass]="getclass()" >
+      <li role="button" class="d-flex ms-auto me-2 fw-bold nav-item p-2">{{uname |uppercase}}</li>
+      <div [ngClass]="getclass()">
         <h6 class="text-center">{{name | titlecase}}</h6>
         <h6 class="text-center">{{email}}</h6>
         <button class="btn btn-danger text-light" (click)="logout()" *ngIf="islogin">Logout</button>

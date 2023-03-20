@@ -1,7 +1,8 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
+import { environment } from 'src/environment/environment';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,7 @@ export class ModalComponent {
   @Output() closes = new EventEmitter<any>();
   @Output() popove = new EventEmitter<any>();
   user: any
-  numbers=[1,2,3,4,5]
+  numbers=environment.numberList
   length=80
   view=true
   constructor(private modalService: NgbModal, public modal: NgbActiveModal, private main: MainserviceService, private router: Router) { }
@@ -29,13 +30,10 @@ export class ModalComponent {
     this.modalClose()
   }
   updateCartProduct(item: any){
-
-    // console.log(this.user[0]);
     let id = this.user[0].id
     this.user[0].cart.push(item)
     
     this.main.updateOrdersUser(this.user[0], id).subscribe((data) => {
-      // console.log(data)
     })
     this.popove.emit()
   }
@@ -47,10 +45,7 @@ export class ModalComponent {
     this.length=des.length
   }
   showless(des:string){
-    this.view=true
-    // console.log(des.length);
-    
-    
+    this.view=true    
     this.length=80
   }
 }

@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class OrderServiceService {
 
   constructor() { }
-  multipleBuy=false
-  cart:any
+  multipleBuy = false
+  cart: any
 }

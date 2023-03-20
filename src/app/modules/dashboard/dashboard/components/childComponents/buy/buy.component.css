@@ -1,6 +1,7 @@
-.confirmpage{
-    background: linear-gradient(to top left, #c31432, #240b36); 
+.confirmpage {
+    background: linear-gradient(to top left, #c31432, #240b36);
 }
-.progress{
+
+.progress {
     height: 3px;
 }

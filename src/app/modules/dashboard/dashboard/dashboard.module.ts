@@ -13,8 +13,6 @@ import { NgbdCarouselPause } from './components/childComponents/carousal/carosal
 import { NorouteComponent } from './components/noroute/noroute.component';
 import { ProductComponent } from './components/childComponents/product/product.component';
 
-// import {}
-
 
 @NgModule({
   declarations: [
@@ -25,6 +23,5 @@ import { ProductComponent } from './components/childComponents/product/product.c
     DashboardRoutingModule, NgbdCarouselPause
   ],
   providers: [NgbActiveModal],
-  // entryComponents:[ModalComponent]?
 })
 export class DashboardModule { }

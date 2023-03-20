@@ -6,16 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LogingrdGuard implements CanActivate {
-  constructor(private route:Router){}
+  constructor(private router: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(localStorage.getItem('islogin')!=undefined|| localStorage.getItem('islogin')!=null){
+    if (localStorage.getItem('islogin')) {
       return true;
     }
-    else{
-      return this.route.navigate(['/login'])
+    else {
+      return this.router.navigate(['/login'])
     }
   }
-  
 }

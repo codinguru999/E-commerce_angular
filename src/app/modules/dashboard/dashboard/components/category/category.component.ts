@@ -1,10 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardServiceService } from '../../services/dashboard/dashboard-service.service';
-import { DashboardComponent } from '../../dashboard.component';
-import { ModalComponent } from '../childComponents/modal/modal.component';
-import { CategoryServiceService } from '../../services/category/category-service.service';
-// import { NgbdPopoverTarget}
 
 @Component({
   selector: 'app-category',
@@ -18,25 +14,21 @@ export class CategoryComponent {
   prod:any=[]
   items: any
   image: any;
-  // modalService: any;
   @ViewChild('content')
   content!: ElementRef;
   @ViewChild('imageshow')
   imag!: ElementRef;
-  constructor(private service: CategoryServiceService,private modalService:NgbModal,private dashboard: DashboardComponent,private dashbrd: DashboardServiceService) {
-    // console.log("Category page Called")
-
+  constructor(private modalService:NgbModal,private dashbrd: DashboardServiceService) {
   }
   ngOnInit() {
-    // console.log('data')
     localStorage.setItem('buy',JSON.stringify(false))
     this.dashbrd.subject.subscribe( {
-      next:(v)=>{
+      next:()=>{
         this.prod = this.dashbrd.returnProducts()
       }
     })
     this.dashbrd.subject1.subscribe({
-      next:(v)=>{
+      next:()=>{
         this.categories=this.dashbrd.categories
         this.getproduct()
       }
@@ -54,7 +46,6 @@ export class CategoryComponent {
   openVerticallyCentered(item: any) {
     // console.log(item)
     this.items = item
-   let modalref= this.modalService.open(this.content,{centered:true,size:'md'});
   }
   closeModal(content : any){
     this.modalService.dismissAll(content)

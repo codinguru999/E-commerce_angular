@@ -18,7 +18,6 @@ export class DashboardServiceService {
     this.getCategory()
   }
   getUser(key: any) {
-    // console.log(key)
     return this.http.get(this.url + '?email=' + key)
   }
   ngOnInit() {
@@ -26,7 +25,6 @@ export class DashboardServiceService {
   getProduct() {
     this.main.getProducts().subscribe((data) => {
       this.products = data
-
       this.subject.next('true')
     })
   }

@@ -1,10 +1,8 @@
-<!-- <ng-template #content let-modal> -->
 <div class="modal-header">
     <h4 class="modal-title">{{items.title}}</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modalClose()"></button>
 </div>
 <div class="modal-body d-flex flex-row">
-    <!-- <p>One fine body&hellip;</p> -->
     <img [src]="items.image" class="w-50 h-100 p-2" alt="">
     <div class="container-fluid w-50 h-100 p-2">
         <h4 class="fw-bolder text-success my-1">Price: {{items.price | currency}} <span class="text-danger fw-light">
@@ -16,7 +14,9 @@
         <h4 class="fw-bolder my-1"><span class="fw-light">Category:</span><br>{{items.category | titlecase}}</h4>
         <span class="fw-bolder">Description:</span><br>
         <p>
-            {{items.description |slice:0:length}} <span role="button" class="text-primary" *ngIf="view" (click)="showmore(items.description)">...View More</span><span role="button" class="text-primary" *ngIf="!view" (click)="showless(items.description)">...View Less</span> </p>
+            {{items.description |slice:0:length}} <span role="button" class="text-primary" *ngIf="view"
+                (click)="showmore(items.description)">...View More</span><span role="button" class="text-primary"
+                *ngIf="!view" (click)="showless(items.description)">...View Less</span> </p>
     </div>
 
 </div>
@@ -35,4 +35,3 @@
 
     <button type="button" class="btn btn-primary ms-auto" (click)="modalClose()">Close</button>
 </div>
-<!-- </ng-template> -->
