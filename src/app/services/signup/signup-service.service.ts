@@ -18,11 +18,9 @@ export class SignupServiceService {
 
   }
   getItem(key: any) {
-    console.log(this.url);
     return this.http.get(this.url + "/users?email=" + key);
   }
   findItem(_key: any, getdata: any) {
-    console.log(getdata[0])
     if (getdata[0] !== undefined) {
       return true
     }

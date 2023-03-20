@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MainserviceService } from 'src/app/services/main/mainservice.service';
 import { OrderServiceService } from '../../services/order/order-service.service';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -27,8 +28,8 @@ export class CartComponent {
     this.main.getuser().subscribe(data => {
       this.userdetails = data
       this.user = this.userdetails[0]
-      this.id = this.userdetails[0].id
-      if (this.userdetails[0].cart[0] === undefined) {
+      this.id = this.userdetails[0]?.id
+      if (this.userdetails[0]?.cart[0] === undefined) {
         this.blank = false
       }
       else {
@@ -74,8 +75,10 @@ export class CartComponent {
   }
   removeItem(item: any) {
     let cart = []
+    this.sum=0
     for (let x of this.user.cart) {
       if (x.id !== item.id) {
+        this.sum+=x.price*x.count
         cart.push(x)
       }
     }
@@ -122,4 +125,5 @@ export class CartComponent {
     this.main.updateOrdersUser(this.user,this.id).subscribe(()=>{
     })
   }
+  
 }

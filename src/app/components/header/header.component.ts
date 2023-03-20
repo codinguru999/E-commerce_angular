@@ -54,9 +54,9 @@ export class HeaderComponent {
   getUser() {
     this.main.getuser().subscribe((data) => {
       this.username = data
-      this.uname = this.username[0].username
-      this.name = this.username[0].name['firstname'] + " " + this.username[0].name['lastname']
-      this.email = this.username[0].email
+      this.uname = this.username[0]?.username
+      this.name = this.username[0]?.name['firstname'] + " " + this.username[0].name['lastname']
+      this.email = this.username[0]?.email
     })
   }
 

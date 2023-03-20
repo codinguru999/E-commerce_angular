@@ -32,7 +32,7 @@ export class AboutComponent {
   }
 
   userorders(details: any) {
-    this.obj = details[0].orders
+    this.obj = details[0]?.orders
   }
   buyProduct(item: any) {
     localStorage.setItem('buy', JSON.stringify(true))
